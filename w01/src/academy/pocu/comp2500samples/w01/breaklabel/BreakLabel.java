@@ -16,7 +16,7 @@ public class BreakLabel {
         findNumber(squareMatrix, -1);
     }
 
-    public static void findNumber(int arr[][], final int n) {
+    private static void findNumber(int arr[][], final int n) {
         int[][] defaultMatrix = {
                 {4, 1, 3, 1},
                 {9, 2, -1, 6},
