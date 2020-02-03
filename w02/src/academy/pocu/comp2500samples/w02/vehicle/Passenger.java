@@ -10,6 +10,4 @@ public class Passenger {
     public void sayName() {
         System.out.println(String.format("My name is %s.", this.Name));
     }
-
-
 }

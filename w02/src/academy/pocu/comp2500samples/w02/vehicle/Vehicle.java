@@ -7,7 +7,8 @@ public class Vehicle {
     public double FuelAmount = 0;
     public int Mileage = 0;
 
-    public Vehicle() { }
+    public Vehicle() {
+    }
 
     public Vehicle(ArrayList<Passenger> passengers) {
         this.Passengers = passengers;
@@ -38,7 +39,7 @@ public class Vehicle {
     public void drive(int distance) {
         System.out.println(String.format("Traveling %dkm.", distance));
 
-        this.FuelAmount -= Math.max(0.1 * distance, 0);
+        this.FuelAmount -= Math.max(0.1 * distance + 0.01 * this.Passengers.size(), 0);
         this.Mileage += distance;
 
         System.out.println(String.format("FuelAmount %f.2km.", this.FuelAmount));
