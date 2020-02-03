@@ -8,6 +8,6 @@ public class Passenger {
     }
 
     public void sayName() {
-        System.out.println(String.format("My name is %s.", this.Name));
+        System.out.println(String.format("Hi, I'm %s!", this.Name));
     }
 }

@@ -5,8 +5,11 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        Passenger blackWidow = new Passenger("Natasha");
+        blackWidow.sayName();
+
         Vehicle motorcycle = new Vehicle(VehicleType.MOTOR_CYCLE);
-        motorcycle.addPassenger(new Passenger("Natasha"));
+        motorcycle.addPassenger(blackWidow);
         motorcycle.addFuel(22);
 
         ArrayList<Passenger> taxiPassengers = new ArrayList<Passenger>();
