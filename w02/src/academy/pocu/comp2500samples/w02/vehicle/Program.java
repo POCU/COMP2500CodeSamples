@@ -2,13 +2,13 @@ package academy.pocu.comp2500samples.w02.vehicle;
 
 import java.util.ArrayList;
 
-public class Main {
+public class Program {
 
     public static void main(String[] args) {
         Passenger blackWidow = new Passenger("Natasha");
         blackWidow.sayName();
 
-        Vehicle motorcycle = new Vehicle(VehicleType.MOTOR_CYCLE);
+        Vehicle motorcycle = new Vehicle(VehicleType.MOTORCYCLE);
         motorcycle.addPassenger(blackWidow);
         motorcycle.addFuel(22);
 

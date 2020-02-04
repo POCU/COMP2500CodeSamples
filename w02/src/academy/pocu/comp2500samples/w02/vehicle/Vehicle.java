@@ -3,10 +3,10 @@ package academy.pocu.comp2500samples.w02.vehicle;
 import java.util.ArrayList;
 
 public class Vehicle {
-    public VehicleType Type;
-    public ArrayList<Passenger> Passengers;
-    public double FuelAmount = 0;
-    public int Mileage = 0;
+    public VehicleType type;
+    public ArrayList<Passenger> passengers;
+    public double fuelAmount;
+    public int mileage;
 
     public Vehicle(VehicleType type) {
         this(type, new ArrayList<Passenger>(), 0);
@@ -21,26 +21,27 @@ public class Vehicle {
     }
 
     public Vehicle(VehicleType type, ArrayList<Passenger> passengers, double fuelAmount) {
-        this.Type = type;
-        this.Passengers = passengers;
-        this.FuelAmount = fuelAmount;
+        this.type = type;
+        this.passengers = passengers;
+        this.fuelAmount = fuelAmount;
+        this.mileage = 0;
     }
 
     public void addPassenger(Passenger passenger) {
-        this.Passengers.add(passenger);
+        this.passengers.add(passenger);
     }
 
     public void removePassenger(String name) {
-        for (Passenger p : this.Passengers) {
-            if (p.Name.equals(name)) {
-                this.Passengers.remove(p);
+        for (Passenger p : this.passengers) {
+            if (p.name.equals(name)) {
+                this.passengers.remove(p);
                 break;
             }
         }
     }
 
     public void addFuel(double fuelAmount) {
-        this.FuelAmount += fuelAmount;
+        this.fuelAmount += fuelAmount;
     }
 
     public void drive(int distance) {
@@ -48,34 +49,32 @@ public class Vehicle {
 
         double gasMileage = 100000;
 
-        switch (this.Type) {
-            case MOTOR_CYCLE:
+        switch (this.type) {
+            case MOTORCYCLE:
                 gasMileage = 0.05;
                 break;
             case SEDAN:
                 gasMileage = 0.07;
                 break;
-
             case MINIVAN:
                 gasMileage = 0.1;
                 break;
-
             default:
-                assert (false) : "Unrecognized vehicle type: " + this.Type;
+                assert (false) : "Unrecognized vehicle type: " + this.type;
                 break;
         }
 
-        double requiredFuel = gasMileage * distance + 0.01 * this.Passengers.size();
+        double requiredFuel = gasMileage * distance + 0.01 * this.passengers.size();
 
-        if (requiredFuel > this.FuelAmount) {
+        if (requiredFuel > this.fuelAmount) {
             System.out.println("Not enough fuel to travel that far!");
             return;
         }
 
-        this.FuelAmount -= requiredFuel;
-        this.Mileage += distance;
+        this.fuelAmount -= requiredFuel;
+        this.mileage += distance;
 
-        System.out.println(String.format("FuelAmount %.2fL.", this.FuelAmount));
-        System.out.println(String.format("Mileage %dkm.", this.Mileage));
+        System.out.println(String.format("FuelAmount %.2fL.", this.fuelAmount));
+        System.out.println(String.format("Mileage %dkm.", this.mileage));
     }
 }
