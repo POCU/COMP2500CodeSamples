@@ -10,16 +10,16 @@ public class ValueTypeReferenceType {
         System.out.println(String.format("x: %d", x));
 
         modifyRefType(vec);
-        System.out.println(String.format("vec.X: %d, vec.Y: %d", vec.X, vec.Y));
+        System.out.println(String.format("vec.X: %d, vec.Y: %d", vec.x, vec.y));
 
         reassignRefType(vec);
-        System.out.println(String.format("vec.X: %d, vec.Y: %d", vec.X, vec.Y));
+        System.out.println(String.format("vec.X: %d, vec.Y: %d", vec.x, vec.y));
 
         modifyValueTypeWithFinal(x);
         System.out.println(String.format("x: %d", x));
 
         modifyRefTypeWithFinal(vec);
-        System.out.println(String.format("vec.X: %d, vec.Y: %d", vec.X, vec.Y));
+        System.out.println(String.format("vec.X: %d, vec.Y: %d", vec.x, vec.y));
     }
 
     private static void modifyValueType(int x) {
@@ -27,8 +27,8 @@ public class ValueTypeReferenceType {
     }
 
     private static void modifyRefType(Vector vec) {
-        vec.X += 15;
-        vec.Y += 10;
+        vec.x += 15;
+        vec.y += 10;
     }
 
     private static void reassignRefType(Vector vec) {
@@ -44,7 +44,7 @@ public class ValueTypeReferenceType {
         // Compile error if uncommented
         // vec = new Vector(2, 3);
 
-        vec.X -= 15;
-        vec.Y -= 10;
+        vec.x -= 15;
+        vec.y -= 10;
     }
 }
