@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w03.privateaccessmodifier;
+package academy.pocu.comp2500samples.w03.pocutunes;
 
 public class Program {
     public static void main(String[] args) {
