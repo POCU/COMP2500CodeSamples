@@ -1,6 +1,5 @@
 package academy.pocu.comp2500samples.w03.pocutunes;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PocuTunes {
@@ -14,6 +13,10 @@ public class PocuTunes {
     public PocuTunes(ArrayList<Song> songs, ArrayList<Playlist> playlists) {
         this.songs = songs;
         this.playlists = playlists;
+    }
+
+    public int getSongsCount() {
+        return this.songs.size();
     }
 
     public void addSong(Song song) {
@@ -68,9 +71,12 @@ public class PocuTunes {
 
                 for (Song song : songs) {
                     song.play();
+                    return;
                 }
             }
         }
+
+        System.out.println(String.format("Playlist %s not found!", playlistName));
     }
 
     private Song findSongOrNull(String songName) {
