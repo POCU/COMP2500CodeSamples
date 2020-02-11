@@ -15,7 +15,7 @@ public class PocuTunes {
         this.playlists = playlists;
     }
 
-    public int getSongsCount() {
+    public int getSongCount() {
         return this.songs.size();
     }
 
@@ -38,7 +38,7 @@ public class PocuTunes {
         return true;
     }
 
-    public void addPlaylists(Playlist playlist) {
+    public void addPlaylist(Playlist playlist) {
         this.playlists.add(playlist);
     }
 

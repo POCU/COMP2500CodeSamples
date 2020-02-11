@@ -31,10 +31,10 @@ public class Program {
         tunes.addSong(song6);
         tunes.addSong(song7);
 
-        System.out.println(String.format("Song count %d", tunes.getSongsCount()));
+        System.out.println(String.format("Song count %d", tunes.getSongCount()));
 
-        tunes.addPlaylists(playlist1);
-        tunes.addPlaylists(playlist2);
+        tunes.addPlaylist(playlist1);
+        tunes.addPlaylist(playlist2);
 
         tunes.playSong("Basket Case");
         tunes.playSong("Hound Dog");
@@ -56,7 +56,7 @@ public class Program {
 
         tunes.removePlaylist("Christmas Music");
 
-        System.out.println(String.format("Song count %d.", tunes.getSongsCount()));
+        System.out.println(String.format("Song count %d.", tunes.getSongCount()));
         tunes.playPlaylist("Christmas Music");
     }
 }
