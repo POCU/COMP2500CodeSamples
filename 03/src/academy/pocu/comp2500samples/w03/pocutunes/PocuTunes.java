@@ -65,18 +65,24 @@ public class PocuTunes {
     }
 
     public void playPlaylist(String playlistName) {
+        Playlist playlist = findPlaylistOrNull(playlistName);
+
+        if (playlist == null) {
+            System.out.println(String.format("Playlist %s not found!", playlistName));
+            return;
+        }
+
+        playlist.play();
+    }
+
+    private Playlist findPlaylistOrNull(String playlistName) {
         for (Playlist playlist : this.playlists) {
             if (playlistName.equals(playlist.getName())) {
-                ArrayList<Song> songs = playlist.getSongs();
-
-                for (Song song : songs) {
-                    song.play();
-                    return;
-                }
+                return playlist;
             }
         }
 
-        System.out.println(String.format("Playlist %s not found!", playlistName));
+        return null;
     }
 
     private Song findSongOrNull(String songName) {

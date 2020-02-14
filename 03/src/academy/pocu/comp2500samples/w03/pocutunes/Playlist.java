@@ -19,10 +19,6 @@ public class Playlist {
         this.name = name;
     }
 
-    public ArrayList<Song> getSongs() {
-        return this.songs;
-    }
-
     public void addSong(Song song) {
         this.songs.add(song);
     }
@@ -36,6 +32,16 @@ public class Playlist {
 
         this.songs.remove(song);
         return true;
+    }
+
+    public void play() {
+        System.out.println(String.format("---Playing %s---", this.name));
+
+        for (Song song : songs) {
+            song.play();
+        }
+
+        System.out.println(String.format("---Done playing %s---", this.name));
     }
 
     private Song findSongOrNull(String songName) {
