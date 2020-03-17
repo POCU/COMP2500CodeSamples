@@ -61,7 +61,7 @@ public class StaticLogger {
         assert (isConfigLoaded) : "Configuration not loaded";
 
         if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.DEBUG.getLogLevel()) {
-            writeToFile(output, message);
+            writeToFile(output, message, args);
         }
     }
 
@@ -69,7 +69,7 @@ public class StaticLogger {
         assert (isConfigLoaded) : "Configuration not loaded";
 
         if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.INFORMATION.getLogLevel()) {
-            writeToFile(output, message);
+            writeToFile(output, message, args);
         }
     }
 
@@ -77,7 +77,7 @@ public class StaticLogger {
         assert (isConfigLoaded) : "Configuration not loaded";
 
         if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.WARNING.getLogLevel()) {
-            writeToFile(output, message);
+            writeToFile(output, message, args);
         }
     }
 
@@ -85,7 +85,7 @@ public class StaticLogger {
         assert (isConfigLoaded) : "Configuration not loaded";
 
         if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.ERROR.getLogLevel()) {
-            writeToFile(output, message);
+            writeToFile(output, message, args);
         }
     }
 
@@ -93,12 +93,12 @@ public class StaticLogger {
         assert (isConfigLoaded) : "Configuration not loaded";
 
         if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.CRITICAL.getLogLevel()) {
-            writeToFile(output, message);
+            writeToFile(output, message, args);
         }
     }
 
-    private static void writeToFile(String fileName, String str) throws IOException {
-        String log = String.format("[%s] %s", Instant.now().toString(), str);
+    private static void writeToFile(String fileName, String str, Object ... args) throws IOException {
+        String log = String.format("[%s] %s", Instant.now().toString(), String.format(str, args));
 
         BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
         out.write(log);
