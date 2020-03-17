@@ -16,12 +16,12 @@ public class SingletonLogger {
 
     private static SingletonLogger instance;
 
-    private LogLevel logLevel;
-    private String output;
+    private LogLevel minLogLevel;
+    private String outputLogFilePath;
 
-    private SingletonLogger(LogLevel logLevel, String output) {
-        this.logLevel = logLevel;
-        this.output = output;
+    private SingletonLogger(LogLevel minLogLevel, String outputLogFilePath) {
+        this.minLogLevel = minLogLevel;
+        this.outputLogFilePath = outputLogFilePath;
     }
 
     public static SingletonLogger getInstance() throws IOException {
@@ -32,7 +32,7 @@ public class SingletonLogger {
             File configFile = new File(loggerConfigPath.toString());
 
             LogLevel defaultLogLevel = LogLevel.WARNING;
-            String outputFileName = "log.txt";
+            String defaultOutputFilename = "log.txt";
 
             if (configFile.isFile()) {
                 List<String> lines = Files.readAllLines(loggerConfigPath, StandardCharsets.UTF_8);
@@ -46,7 +46,7 @@ public class SingletonLogger {
                             break;
 
                         case "output":
-                            outputFileName = splits[1];
+                            defaultOutputFilename = splits[1];
                             break;
 
                         default:
@@ -55,43 +55,43 @@ public class SingletonLogger {
                 }
             }
 
-            Path outputPath = Paths.get(classPath, outputFileName);
-            String outputPathString = outputPath.toString();
+            Path path = Paths.get(classPath, defaultOutputFilename);
+            String pathString = path.toString();
 
-            BufferedWriter out = new BufferedWriter(new FileWriter(outputPathString));
+            BufferedWriter out = new BufferedWriter(new FileWriter(pathString));
             out.close();
 
-            instance = new SingletonLogger(defaultLogLevel, outputPathString);
+            instance = new SingletonLogger(defaultLogLevel, pathString);
         }
 
         return instance;
     }
 
     public void logDebug(String message, Object ... args) throws IOException {
-        writeToFile(this.output, LogLevel.DEBUG, message, args);
+        writeToFile(LogLevel.DEBUG, message, args);
     }
 
     public void logInformation(String message, Object ... args) throws IOException {
-        writeToFile(this.output, LogLevel.INFORMATION, message, args);
+        writeToFile(LogLevel.INFORMATION, message, args);
     }
 
     public void logWarning(String message, Object ... args) throws IOException {
-        writeToFile(this.output, LogLevel.WARNING, message, args);
+        writeToFile(LogLevel.WARNING, message, args);
     }
 
     public void logError(String message, Object ... args) throws IOException {
-        writeToFile(this.output, LogLevel.ERROR, message, args);
+        writeToFile(LogLevel.ERROR, message, args);
     }
 
     public void logCritical(String message, Object ... args) throws IOException {
-        writeToFile(this.output, LogLevel.CRITICAL, message, args);
+        writeToFile(LogLevel.CRITICAL, message, args);
     }
 
-    private void writeToFile(String fileName, LogLevel alogLevel, String message, Object ... args) throws IOException {
-        if (this.logLevel.getLogLevel() <= alogLevel.getLogLevel()) {
-            String log = String.format("[%s] %s: %s", Instant.now().toString(), alogLevel.toString(), String.format(message, args));
+    private void writeToFile(LogLevel logLevel, String message, Object ... args) throws IOException {
+        if (this.minLogLevel.getLogLevel() <= logLevel.getLogLevel()) {
+            String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
 
-            BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
+            BufferedWriter out = new BufferedWriter(new FileWriter(this.outputLogFilePath, true));
             out.write(log);
             out.newLine();
             out.close();
