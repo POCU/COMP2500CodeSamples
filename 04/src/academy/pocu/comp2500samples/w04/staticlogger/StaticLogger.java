@@ -107,8 +107,6 @@ public class StaticLogger {
     }
 
     private static String getClassPath() {
-        Path p1 = Paths.get(".").toAbsolutePath().normalize();
-
         File f = new File(StaticLogger.class.getProtectionDomain().getCodeSource().getLocation().getPath());
         String packageName = StaticLogger.class.getPackageName();
         packageName = packageName.replace('.', '/');

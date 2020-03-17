@@ -107,8 +107,6 @@ public class SingletonLogger {
     }
 
     private static String getClassPath() {
-        Path p1 = Paths.get(".").toAbsolutePath().normalize();
-
         File f = new File(SingletonLogger.class.getProtectionDomain().getCodeSource().getLocation().getPath());
         String packageName = SingletonLogger.class.getPackageName();
         packageName = packageName.replace('.', '/');
