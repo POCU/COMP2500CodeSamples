@@ -68,42 +68,34 @@ public class SingletonLogger {
     }
 
     public void logDebug(String message, Object ... args) throws IOException {
-        if (this.logLevel.getLogLevel() <= LogLevel.DEBUG.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(this.output, LogLevel.DEBUG, message, args);
     }
 
     public void logInformation(String message, Object ... args) throws IOException {
-        if (this.logLevel.getLogLevel() <= LogLevel.INFORMATION.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(this.output, LogLevel.INFORMATION, message, args);
     }
 
     public void logWarning(String message, Object ... args) throws IOException {
-        if (this.logLevel.getLogLevel() <= LogLevel.WARNING.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(this.output, LogLevel.WARNING, message, args);
     }
 
     public void logError(String message, Object ... args) throws IOException {
-        if (this.logLevel.getLogLevel() <= LogLevel.ERROR.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(this.output, LogLevel.ERROR, message, args);
     }
 
     public void logCritical(String message, Object ... args) throws IOException {
-        if (this.logLevel.getLogLevel() <= LogLevel.CRITICAL.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(this.output, LogLevel.CRITICAL, message, args);
     }
 
-    private void writeToFile(String fileName, String str, Object ... args) throws IOException {
-        String log = String.format("[%s] %s", Instant.now().toString(), String.format(str, args));
+    private void writeToFile(String fileName, LogLevel alogLevel, String message, Object ... args) throws IOException {
+        if (this.logLevel.getLogLevel() <= alogLevel.getLogLevel()) {
+            String log = String.format("[%s] %s: %s", Instant.now().toString(), alogLevel.toString(), String.format(message, args));
 
-        BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
-        out.write(log);
-        out.newLine();
-        out.close();
+            BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
+            out.write(log);
+            out.newLine();
+            out.close();
+        }
     }
 
     private static String getClassPath() {

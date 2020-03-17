@@ -59,51 +59,38 @@ public class StaticLogger {
 
     public static void logDebug(String message, Object ... args) throws IOException {
         assert (isConfigLoaded) : "Configuration not loaded";
-
-        if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.DEBUG.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(output, LogLevel.DEBUG, message, args);
     }
 
     public static void logInformation(String message, Object ... args) throws IOException {
         assert (isConfigLoaded) : "Configuration not loaded";
-
-        if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.INFORMATION.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(output, LogLevel.INFORMATION, message, args);
     }
 
     public static void logWarning(String message, Object ... args) throws IOException {
         assert (isConfigLoaded) : "Configuration not loaded";
-
-        if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.WARNING.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(output, LogLevel.WARNING, message, args);
     }
 
     public static void logError(String message, Object ... args) throws IOException {
         assert (isConfigLoaded) : "Configuration not loaded";
-
-        if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.ERROR.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(output, LogLevel.ERROR, message, args);
     }
 
     public static void logCritical(String message, Object ... args) throws IOException {
         assert (isConfigLoaded) : "Configuration not loaded";
-
-        if (isConfigLoaded && logLevel.getLogLevel() <= LogLevel.CRITICAL.getLogLevel()) {
-            writeToFile(output, message, args);
-        }
+        writeToFile(output, LogLevel.CRITICAL, message, args);
     }
 
-    private static void writeToFile(String fileName, String str, Object ... args) throws IOException {
-        String log = String.format("[%s] %s", Instant.now().toString(), String.format(str, args));
+    private static void writeToFile(String fileName, LogLevel alogLevel, String message, Object ... args) throws IOException {
+        if (isConfigLoaded && logLevel.getLogLevel() <= alogLevel.getLogLevel()) {
+            String log = String.format("[%s] %s: %s", Instant.now().toString(), alogLevel.toString(), String.format(message, args));
 
-        BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
-        out.write(log);
-        out.newLine();
-        out.close();
+            BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
+            out.write(log);
+            out.newLine();
+            out.close();
+        }
     }
 
     private static String getClassPath() {
