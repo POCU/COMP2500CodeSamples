@@ -31,7 +31,7 @@ public class SingletonLogger {
 
             File configFile = new File(loggerConfigPath.toString());
 
-            LogLevel level = LogLevel.WARNING;
+            LogLevel defaultLogLevel = LogLevel.WARNING;
             String outputFileName = "log.txt";
 
             if (configFile.isFile()) {
@@ -42,7 +42,7 @@ public class SingletonLogger {
 
                     switch (splits[0]) {
                         case "loglevel":
-                            level = LogLevel.valueOf(splits[1]);
+                            defaultLogLevel = LogLevel.valueOf(splits[1]);
                             break;
 
                         case "output":
@@ -61,7 +61,7 @@ public class SingletonLogger {
             BufferedWriter out = new BufferedWriter(new FileWriter(outputPathString));
             out.close();
 
-            instance = new SingletonLogger(level, outputPathString);
+            instance = new SingletonLogger(defaultLogLevel, outputPathString);
         }
 
         return instance;

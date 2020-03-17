@@ -1,2 +1,2 @@
-loglevel=WARNING
+loglevel=INFORMATION
 output=static-log.txt

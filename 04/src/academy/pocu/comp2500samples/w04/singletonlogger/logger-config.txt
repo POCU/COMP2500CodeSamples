@@ -1,2 +1,2 @@
-loglevel=DEBUG
+loglevel=ERROR
 output=singleton-log.txt
