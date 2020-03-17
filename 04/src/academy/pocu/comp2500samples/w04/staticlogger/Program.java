@@ -5,11 +5,11 @@ public class Program {
     public static void main(String[] args) {
         try {
             StaticLogger.loadConfig();
-            StaticLogger.logDebug("Printed if LogLevel is DEBUG");
-            StaticLogger.logInformation("Printed if LogLevel is INFORMATION or lower");
-            StaticLogger.logWarning("Printed if LogLevel is WARNING or lower");
-            StaticLogger.logError("Printed if LogLevel is ERROR or lower");
-            StaticLogger.logCritical("Printed if LogLevel is CRITICAL or lower");
+            StaticLogger.logDebug("Printed if the minimum log level is DEBUG");
+            StaticLogger.logInformation("Printed if the minimum log level is INFORMATION or lower");
+            StaticLogger.logWarning("Printed if the minimum log level is WARNING or lower");
+            StaticLogger.logError("Printed if the minimum log level is ERROR or lower");
+            StaticLogger.logCritical("Printed if the minimum log level is CRITICAL or lower");
 
             int x = 10;
             int y = 20;

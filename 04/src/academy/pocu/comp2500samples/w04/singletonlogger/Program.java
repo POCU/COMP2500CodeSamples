@@ -6,11 +6,11 @@ public class Program {
     public static void main(String[] args) {
         try {
             SingletonLogger logger = SingletonLogger.getInstance();
-            logger.logDebug("Printed if LogLevel is DEBUG");
-            logger.logInformation("Printed if LogLevel is INFORMATION or lower");
-            logger.logWarning("Printed if LogLevel is WARNING or lower");
-            logger.logError("Printed if LogLevel is ERROR or lower");
-            logger.logCritical("Printed if LogLevel is CRITICAL or lower");
+            logger.logDebug("Printed if the minimum log level is DEBUG");
+            logger.logInformation("Printed if the minimum log level is INFORMATION or lower");
+            logger.logWarning("Printed if the minimum log level is WARNING or lower");
+            logger.logError("Printed if the minimum log level is ERROR or lower");
+            logger.logCritical("Printed if the minimum log level is CRITICAL or lower");
 
             int x = 10;
             int y = 20;
