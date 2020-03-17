@@ -1,8 +1,5 @@
 package academy.pocu.comp2500samples.w04.singletonlogger;
 
-import academy.pocu.comp2500samples.w04.staticlogger.LogLevel;
-import academy.pocu.comp2500samples.w04.staticlogger.StaticLogger;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

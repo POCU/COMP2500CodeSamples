@@ -9,7 +9,7 @@ public enum LogLevel {
 
     private int level;
 
-    public int getLevel() {
+    public int getLogLevel() {
         return this.level;
     }
 
