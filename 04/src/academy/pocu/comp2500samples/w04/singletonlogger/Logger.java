@@ -11,20 +11,20 @@ import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.List;
 
-public class SingletonLogger {
+public class Logger {
     private static final String CONFIG_FILE_NAME = "logger-config.txt";
 
-    private static SingletonLogger instance;
+    private static Logger instance;
 
     private LogLevel minLogLevel;
     private String outputLogFilePath;
 
-    private SingletonLogger(LogLevel minLogLevel, String outputLogFilePath) {
+    private Logger(LogLevel minLogLevel, String outputLogFilePath) {
         this.minLogLevel = minLogLevel;
         this.outputLogFilePath = outputLogFilePath;
     }
 
-    public static SingletonLogger getInstance() throws IOException {
+    public static Logger getInstance() throws IOException {
         if (instance == null) {
             String classPath = getClassPath();
             Path loggerConfigPath = Paths.get(classPath, CONFIG_FILE_NAME);
@@ -61,7 +61,7 @@ public class SingletonLogger {
             BufferedWriter out = new BufferedWriter(new FileWriter(pathString));
             out.close();
 
-            instance = new SingletonLogger(defaultLogLevel, pathString);
+            instance = new Logger(defaultLogLevel, pathString);
         }
 
         return instance;
@@ -99,8 +99,8 @@ public class SingletonLogger {
     }
 
     private static String getClassPath() {
-        File f = new File(SingletonLogger.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-        String packageName = SingletonLogger.class.getPackageName();
+        File f = new File(Logger.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+        String packageName = Logger.class.getPackageName();
         packageName = packageName.replace('.', '/');
 
         Path p = Paths.get(f.getPath(), packageName);

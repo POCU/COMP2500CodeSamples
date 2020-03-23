@@ -11,14 +11,14 @@ import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.List;
 
-public class StaticLogger {
+public class Logger {
     private static final String CONFIG_FILE_NAME = "logger-config.txt";
 
     private static LogLevel logLevel = LogLevel.WARNING;
     private static boolean isConfigLoaded = false;
     private static String outputLogFilePath;
 
-    private StaticLogger() { }
+    private Logger() { }
 
     public static void loadConfig() throws IOException {
         String classPath = getClassPath();
@@ -83,7 +83,7 @@ public class StaticLogger {
     }
 
     private static void writeToFile(LogLevel logLevel, String message, Object ... args) throws IOException {
-        if (isConfigLoaded && StaticLogger.logLevel.getLogLevel() <= logLevel.getLogLevel()) {
+        if (isConfigLoaded && Logger.logLevel.getLogLevel() <= logLevel.getLogLevel()) {
             String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
 
             BufferedWriter out = new BufferedWriter(new FileWriter(outputLogFilePath, true));
@@ -94,8 +94,8 @@ public class StaticLogger {
     }
 
     private static String getClassPath() {
-        File f = new File(StaticLogger.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-        String packageName = StaticLogger.class.getPackageName();
+        File f = new File(Logger.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+        String packageName = Logger.class.getPackageName();
         packageName = packageName.replace('.', '/');
 
         Path p = Paths.get(f.getPath(), packageName);

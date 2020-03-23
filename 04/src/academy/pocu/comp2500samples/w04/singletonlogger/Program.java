@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Program {
     public static void main(String[] args) {
         try {
-            SingletonLogger logger = SingletonLogger.getInstance();
+            Logger logger = Logger.getInstance();
             logger.logDebug("Printed if the minimum log level is DEBUG");
             logger.logInformation("Printed if the minimum log level is INFORMATION or lower");
             logger.logWarning("Printed if the minimum log level is WARNING or lower");
