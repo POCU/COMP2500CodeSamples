@@ -20,8 +20,7 @@ public class Program {
             logger.logWarning("%d * %d = %d", x, y, x * y);
             logger.logError("%d * %d = %d", x, y, x * y);
             logger.logCritical("%d * %d = %d", x, y, x * y);
-        } catch (IOException e) {
-            System.err.println(e.toString());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

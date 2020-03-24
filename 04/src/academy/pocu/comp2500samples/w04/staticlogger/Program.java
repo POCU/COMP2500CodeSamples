@@ -1,4 +1,5 @@
 package academy.pocu.comp2500samples.w04.staticlogger;
+
 import java.io.IOException;
 
 public class Program {
@@ -19,7 +20,7 @@ public class Program {
             Logger.logWarning("%d * %d = %d", x, y, x * y);
             Logger.logError("%d * %d = %d", x, y, x * y);
             Logger.logCritical("%d * %d = %d", x, y, x * y);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
