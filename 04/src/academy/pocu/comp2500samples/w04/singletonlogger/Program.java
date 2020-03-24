@@ -21,6 +21,7 @@ public class Program {
             logger.logError("%d * %d = %d", x, y, x * y);
             logger.logCritical("%d * %d = %d", x, y, x * y);
         } catch (IOException e) {
+            System.err.println(e.toString());
             e.printStackTrace();
         }
     }
