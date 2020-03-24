@@ -71,34 +71,38 @@ public class Logger {
         return instance;
     }
 
-    public void logDebug(String message, Object... args) throws IOException {
+    public void logDebug(String message, Object... args) {
         writeToFile(LogLevel.DEBUG, message, args);
     }
 
-    public void logInformation(String message, Object... args) throws IOException {
+    public void logInformation(String message, Object... args) {
         writeToFile(LogLevel.INFORMATION, message, args);
     }
 
-    public void logWarning(String message, Object... args) throws IOException {
+    public void logWarning(String message, Object... args) {
         writeToFile(LogLevel.WARNING, message, args);
     }
 
-    public void logError(String message, Object... args) throws IOException {
+    public void logError(String message, Object... args) {
         writeToFile(LogLevel.ERROR, message, args);
     }
 
-    public void logCritical(String message, Object... args) throws IOException {
+    public void logCritical(String message, Object... args) {
         writeToFile(LogLevel.CRITICAL, message, args);
     }
 
-    private void writeToFile(LogLevel logLevel, String message, Object... args) throws IOException {
+    private void writeToFile(LogLevel logLevel, String message, Object... args) {
         if (this.minLogLevel.getLogLevel() <= logLevel.getLogLevel()) {
-            String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
+            try {
+                String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
 
-            BufferedWriter out = new BufferedWriter(new FileWriter(this.outputPath, true));
-            out.write(log);
-            out.newLine();
-            out.close();
+                BufferedWriter out = new BufferedWriter(new FileWriter(this.outputPath, true));
+                out.write(log);
+                out.newLine();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

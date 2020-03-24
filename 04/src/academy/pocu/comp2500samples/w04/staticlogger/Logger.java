@@ -21,76 +21,84 @@ public class Logger {
     private Logger() {
     }
 
-    public static void loadConfig() throws IOException {
-        String classPath = getClassPath();
-        Path loggerConfigPath = Paths.get(classPath, CONFIG_FILENAME);
+    public static void loadConfig() {
+        try {
+            String classPath = getClassPath();
+            Path loggerConfigPath = Paths.get(classPath, CONFIG_FILENAME);
 
-        File configFile = new File(loggerConfigPath.toString());
-        String outputFilename = "log.txt";
+            File configFile = new File(loggerConfigPath.toString());
+            String outputFilename = "log.txt";
 
-        if (configFile.isFile()) {
-            List<String> lines = Files.readAllLines(loggerConfigPath, StandardCharsets.UTF_8);
+            if (configFile.isFile()) {
+                List<String> lines = Files.readAllLines(loggerConfigPath, StandardCharsets.UTF_8);
 
-            for (String line : lines) {
-                String[] splits = line.split("=");
+                for (String line : lines) {
+                    String[] splits = line.split("=");
 
-                switch (splits[0]) {
-                    case "loglevel":
-                        logLevel = LogLevel.valueOf(splits[1]);
-                        break;
+                    switch (splits[0]) {
+                        case "loglevel":
+                            logLevel = LogLevel.valueOf(splits[1]);
+                            break;
 
-                    case "output":
-                        outputFilename = splits[1];
-                        break;
+                        case "output":
+                            outputFilename = splits[1];
+                            break;
 
-                    default:
-                        throw new IllegalArgumentException("Unknown configuration setting: " + splits[0]);
+                        default:
+                            throw new IllegalArgumentException("Unknown configuration setting: " + splits[0]);
+                    }
                 }
             }
+
+            Path path = Paths.get(classPath, outputFilename);
+            outputPath = path.toString();
+
+            BufferedWriter out = new BufferedWriter(new FileWriter(outputPath));
+            out.close();
+
+            isConfigLoaded = true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
-        Path path = Paths.get(classPath, outputFilename);
-        outputPath = path.toString();
-
-        BufferedWriter out = new BufferedWriter(new FileWriter(outputPath));
-        out.close();
-
-        isConfigLoaded = true;
     }
 
-    public static void logDebug(String message, Object... args) throws IOException {
+    public static void logDebug(String message, Object... args) {
         assert (isConfigLoaded) : "Configuration not loaded";
         writeToFile(LogLevel.DEBUG, message, args);
     }
 
-    public static void logInformation(String message, Object... args) throws IOException {
+    public static void logInformation(String message, Object... args) {
         assert (isConfigLoaded) : "Configuration not loaded";
         writeToFile(LogLevel.INFORMATION, message, args);
     }
 
-    public static void logWarning(String message, Object... args) throws IOException {
+    public static void logWarning(String message, Object... args) {
         assert (isConfigLoaded) : "Configuration not loaded";
         writeToFile(LogLevel.WARNING, message, args);
     }
 
-    public static void logError(String message, Object... args) throws IOException {
+    public static void logError(String message, Object... args) {
         assert (isConfigLoaded) : "Configuration not loaded";
         writeToFile(LogLevel.ERROR, message, args);
     }
 
-    public static void logCritical(String message, Object... args) throws IOException {
+    public static void logCritical(String message, Object... args) {
         assert (isConfigLoaded) : "Configuration not loaded";
         writeToFile(LogLevel.CRITICAL, message, args);
     }
 
-    private static void writeToFile(LogLevel logLevel, String message, Object... args) throws IOException {
+    private static void writeToFile(LogLevel logLevel, String message, Object... args) {
         if (isConfigLoaded && Logger.logLevel.getLogLevel() <= logLevel.getLogLevel()) {
-            String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
+            try {
+                String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
 
-            BufferedWriter out = new BufferedWriter(new FileWriter(outputPath, true));
-            out.write(log);
-            out.newLine();
-            out.close();
+                BufferedWriter out = new BufferedWriter(new FileWriter(outputPath, true));
+                out.write(log);
+                out.newLine();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
