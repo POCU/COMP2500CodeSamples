@@ -19,7 +19,7 @@ public class Song {
         return this.name;
     }
 
-    public int getPlayTimeInMilliSeconds() {
+    public int getPlaytimeInMilliSeconds() {
         return this.playTimeInMilliSeconds;
     }
 
