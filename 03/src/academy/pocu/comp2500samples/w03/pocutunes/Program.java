@@ -2,15 +2,46 @@ package academy.pocu.comp2500samples.w03.pocutunes;
 
 public class Program {
     public static void main(String[] args) {
-        Song hotelCalifornia = new Song("Eagles", "Hotel California", 180100);
-        Song stairwayToHeaven = new Song("Led Zeppelin", "Stairway to Heaven", 172100);
-        Song havana = new Song("Camila Cabello", "Havana", 182200);
-        Song santaBaby = new Song("Ariana Grade", "Santa Baby", 166220);
-        Song houndDog = new Song("Elvis Presley", "Hound Dog", 175220);
-        Song basketCase = new Song("Green Day", "Basket Case", 193000);
-        Song allIWantForChristmasIsYou = new Song("Mariah Carey", "All I Want For Christmas Is You", 18301);
+        Song hotelCalifornia = new Song(
+                "Eagles",
+                "Hotel California",
+                180100);
 
-        System.out.println(String.format("%s by %s. Playtime is %d.", hotelCalifornia.getName(), hotelCalifornia.getArtist(), hotelCalifornia.getPlayTimeInMilliSeconds()));
+        Song stairwayToHeaven = new Song(
+                "Led Zeppelin",
+                "Stairway to Heaven",
+                172100);
+
+        Song havana = new Song(
+                "Camila Cabello",
+                "Havana",
+                182200);
+
+        Song santaBaby = new Song(
+                "Ariana Grade",
+                "Santa Baby",
+                166220);
+
+        Song houndDog = new Song(
+                "Elvis Presley",
+                "Hound Dog",
+                175220);
+
+        Song basketCase = new Song(
+                "Green Day",
+                "Basket Case",
+                193000);
+
+        Song allIWantForChristmasIsYou = new Song(
+                "Mariah Carey",
+                "All I Want For Christmas Is You",
+                18301);
+
+        System.out.println(String.format(
+                "%s by %s. Playtime is %d.",
+                hotelCalifornia.getName(),
+                hotelCalifornia.getArtist(),
+                hotelCalifornia.getPlaytimeInMilliSeconds()));
 
         Playlist playlist1 = new Playlist("Classic Rock");
         playlist1.addSong(hotelCalifornia);
@@ -31,7 +62,9 @@ public class Program {
         tunes.addSong(basketCase);
         tunes.addSong(allIWantForChristmasIsYou);
 
-        System.out.println(String.format("Song count %d", tunes.getSongCount()));
+        System.out.println(String.format(
+                "Song count %d",
+                tunes.getSongCount()));
 
         tunes.addPlaylist(playlist1);
         tunes.addPlaylist(playlist2);
@@ -56,7 +89,9 @@ public class Program {
 
         tunes.removePlaylist("Christmas Music");
 
-        System.out.println(String.format("Song count %d.", tunes.getSongCount()));
+        System.out.println(String.format(
+                "Song count %d.",
+                tunes.getSongCount()));
         tunes.playPlaylist("Christmas Music");
     }
 }
