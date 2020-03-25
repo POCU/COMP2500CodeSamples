@@ -18,6 +18,8 @@ public class Program {
             Logger.logWarning("%d * %d = %d", x, y, x * y);
             Logger.logError("%d * %d = %d", x, y, x * y);
             Logger.logCritical("%d * %d = %d", x, y, x * y);
+
+            Logger.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

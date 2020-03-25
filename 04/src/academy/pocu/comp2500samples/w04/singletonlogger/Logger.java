@@ -18,10 +18,17 @@ public class Logger {
 
     private LogLevel minLogLevel;
     private String outputPath;
+    private BufferedWriter outBuffer;
 
     private Logger(LogLevel minLogLevel, String outputPath) {
         this.minLogLevel = minLogLevel;
         this.outputPath = outputPath;
+
+        try {
+            this.outBuffer = new BufferedWriter(new FileWriter(this.outputPath));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static Logger getInstance() {
@@ -59,9 +66,6 @@ public class Logger {
                 Path path = Paths.get(classPath, outputFilename);
                 String pathString = path.toString();
 
-                BufferedWriter out = new BufferedWriter(new FileWriter(pathString));
-                out.close();
-
                 instance = new Logger(logLevel, pathString);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -69,6 +73,16 @@ public class Logger {
         }
 
         return instance;
+    }
+
+    public void deleteInstance() {
+        if (this.outBuffer != null) {
+            try {
+                this.outBuffer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public void logDebug(String message, Object... args) {
@@ -95,11 +109,9 @@ public class Logger {
         if (this.minLogLevel.getLogLevel() <= logLevel.getLogLevel()) {
             try {
                 String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
-
-                BufferedWriter out = new BufferedWriter(new FileWriter(this.outputPath, true));
-                out.write(log);
-                out.newLine();
-                out.close();
+                this.outBuffer.write(log);
+                this.outBuffer.newLine();
+                this.outBuffer.flush();
             } catch (IOException e) {
                 e.printStackTrace();
             }
