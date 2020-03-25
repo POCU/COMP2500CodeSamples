@@ -1,0 +1,2 @@
+loglevel=ERROR
+output=singleton-log.txt

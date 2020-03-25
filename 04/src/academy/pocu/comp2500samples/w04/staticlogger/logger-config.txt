@@ -1,0 +1,2 @@
+loglevel=INFORMATION
+output=static-log.txt
