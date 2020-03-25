@@ -39,14 +39,14 @@ public class Program {
         }
 
         try {
-            Method method = vectorClass.getMethod("toString", null);
+            Method method = vectorClass.getMethod("toString");
             System.out.println(method.toString());
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
 
         try {
-            Method method = vectorClass.getDeclaredMethod("toString", null);
+            Method method = vectorClass.getDeclaredMethod("toString");
             System.out.println(method.toString());
         } catch (NoSuchMethodException e) {
             System.out.println("No such method!");
@@ -60,7 +60,7 @@ public class Program {
         }
 
         try {
-            Method method = vectorClass.getDeclaredMethod("changeName", null);
+            Method method = vectorClass.getDeclaredMethod("changeName");
             System.out.println(method.toString());
         } catch (NoSuchMethodException e) {
             System.out.println("No such method!");

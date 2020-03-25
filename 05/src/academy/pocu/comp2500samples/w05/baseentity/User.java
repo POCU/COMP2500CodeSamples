@@ -9,16 +9,6 @@ public class User extends BaseEntity {
     private String nickname;
 
     public User(
-            final String name,
-            final String email,
-            final String nickname) {
-        super();
-        this.name = name;
-        this.email = email;
-        this.nickname = nickname;
-    }
-
-    public User(
             final UUID id,
             final OffsetDateTime createdDateTime,
             final OffsetDateTime modifiedDateTime,
