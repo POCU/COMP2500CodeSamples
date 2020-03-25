@@ -1,18 +1,20 @@
 package academy.pocu.comp2500samples.w05.baseentity;
 
 import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
 import java.util.UUID;
 
 public class BaseEntity {
-    private final UUID id;
-    private final OffsetDateTime createdDateTime;
+    private UUID id;
+    private OffsetDateTime createdDateTime;
     private OffsetDateTime modifiedDateTime;
 
-    public BaseEntity(UUID id) {
+    public BaseEntity(
+            final UUID id,
+            final OffsetDateTime createdDateTime,
+            final OffsetDateTime modifiedDateTime) {
         this.id = id;
-        this.createdDateTime = OffsetDateTime.now(ZoneOffset.UTC);
-        this.modifiedDateTime = createdDateTime;
+        this.createdDateTime = createdDateTime;
+        this.modifiedDateTime = modifiedDateTime;
     }
 
     public UUID getID() {
@@ -27,7 +29,7 @@ public class BaseEntity {
         return this.modifiedDateTime;
     }
 
-    public void setModifiedDateTime(OffsetDateTime modifiedDateTime) {
+    public void setModifiedDateTime(final OffsetDateTime modifiedDateTime) {
         this.modifiedDateTime = modifiedDateTime;
     }
 }
