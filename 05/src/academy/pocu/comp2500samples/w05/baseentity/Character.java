@@ -5,8 +5,9 @@ import java.util.UUID;
 public class Character extends BaseEntity {
     protected String name;
 
-    public Character(UUID id) {
+    public Character(UUID id, String name) {
         super(id);
+        this.name = name;
     }
 
     public void sayName() {

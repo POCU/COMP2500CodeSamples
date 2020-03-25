@@ -2,7 +2,6 @@ package academy.pocu.comp2500samples.w05.baseentity;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import java.util.Date;
 import java.util.UUID;
 
 public class BaseEntity {
