@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class CourseTerm extends BaseEntity {
-    private short term;
+    private int term;
     private Course course;
     private ArrayList<User> students;
 
@@ -13,13 +13,13 @@ public class CourseTerm extends BaseEntity {
             final UUID id,
             final OffsetDateTime createdDateTime,
             final OffsetDateTime modifiedDateTime,
-            final short term) {
+            final int term) {
         super(id, createdDateTime, modifiedDateTime);
         this.term = term;
         this.students = new ArrayList<>();
     }
 
-    public short getTerm() {
+    public int getTerm() {
         return this.term;
     }
 
@@ -39,6 +39,7 @@ public class CourseTerm extends BaseEntity {
         this.students = students;
     }
 
+    // helper methods
     public void addStudent(final User user) {
         this.students.add(user);
     }

@@ -1,6 +1,7 @@
 package academy.pocu.comp2500samples.w05.baseentity;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -39,5 +40,17 @@ public class Course extends BaseEntity {
 
     public void setCourseTerms(final ArrayList<CourseTerm> courseTerms) {
         this.courseTerms = courseTerms;
+    }
+
+    // helper methods
+    public void addCourseTerm(final int term) {
+        CourseTerm courseTerm = new CourseTerm(
+                UUID.randomUUID(),
+                OffsetDateTime.now(ZoneOffset.UTC),
+                OffsetDateTime.now(ZoneOffset.UTC),
+                term);
+        courseTerm.setCourse(this);
+
+        this.courseTerms.add(courseTerm);
     }
 }
