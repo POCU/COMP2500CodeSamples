@@ -17,21 +17,21 @@ public class Vector {
         return this.y;
     }
 
-    public Vector add(final Vector other) {
+    public Vector add(Vector other) {
         int sumX = this.x + other.x;
         int sumY = this.y + other.y;
 
         return new Vector(sumX, sumY);
     }
 
-    public Vector subtract(final Vector other) {
+    public Vector subtract(Vector other) {
         int diffX = this.x - other.x;
         int diffY = this.y - other.y;
 
         return new Vector(diffX, diffY);
     }
 
-    public int dot(final Vector other) {
+    public int dot(Vector other) {
         int dotProduct = this.x * other.x + this.y * other.y;
         return dotProduct;
     }

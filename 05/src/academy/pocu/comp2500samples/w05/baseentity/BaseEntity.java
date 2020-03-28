@@ -9,9 +9,9 @@ public class BaseEntity {
     private OffsetDateTime modifiedDateTime;
 
     public BaseEntity(
-            final UUID id,
-            final OffsetDateTime createdDateTime,
-            final OffsetDateTime modifiedDateTime) {
+            UUID id,
+            OffsetDateTime createdDateTime,
+            OffsetDateTime modifiedDateTime) {
         this.id = id;
         this.createdDateTime = createdDateTime;
         this.modifiedDateTime = modifiedDateTime;
@@ -29,7 +29,7 @@ public class BaseEntity {
         return this.modifiedDateTime;
     }
 
-    public void setModifiedDateTime(final OffsetDateTime modifiedDateTime) {
+    public void setModifiedDateTime(OffsetDateTime modifiedDateTime) {
         this.modifiedDateTime = modifiedDateTime;
     }
 }

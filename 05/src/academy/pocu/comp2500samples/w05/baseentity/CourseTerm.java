@@ -10,10 +10,10 @@ public class CourseTerm extends BaseEntity {
     private ArrayList<User> students;
 
     public CourseTerm(
-            final UUID id,
-            final OffsetDateTime createdDateTime,
-            final OffsetDateTime modifiedDateTime,
-            final int term) {
+            UUID id,
+            OffsetDateTime createdDateTime,
+            OffsetDateTime modifiedDateTime,
+            int term) {
         super(id, createdDateTime, modifiedDateTime);
         this.term = term;
         this.students = new ArrayList<>();
@@ -27,7 +27,7 @@ public class CourseTerm extends BaseEntity {
         return this.course;
     }
 
-    public void setCourse(final Course course) {
+    public void setCourse(Course course) {
         this.course = course;
     }
 
@@ -35,12 +35,12 @@ public class CourseTerm extends BaseEntity {
         return this.students;
     }
 
-    public void setStudents(final ArrayList<User> students) {
+    public void setStudents(ArrayList<User> students) {
         this.students = students;
     }
 
     // helper methods
-    public void addStudent(final User user) {
+    public void addStudent(User user) {
         this.students.add(user);
     }
 

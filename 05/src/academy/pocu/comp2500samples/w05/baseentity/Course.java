@@ -30,7 +30,7 @@ public class Course extends BaseEntity {
         return this.title;
     }
 
-    public void setTitle(final String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -38,12 +38,12 @@ public class Course extends BaseEntity {
         return this.courseTerms;
     }
 
-    public void setCourseTerms(final ArrayList<CourseTerm> courseTerms) {
+    public void setCourseTerms(ArrayList<CourseTerm> courseTerms) {
         this.courseTerms = courseTerms;
     }
 
     // helper methods
-    public void addCourseTerm(final int term) {
+    public void addCourseTerm(int term) {
         CourseTerm courseTerm = new CourseTerm(
                 UUID.randomUUID(),
                 OffsetDateTime.now(ZoneOffset.UTC),

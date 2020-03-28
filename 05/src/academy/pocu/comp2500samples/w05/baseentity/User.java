@@ -9,12 +9,12 @@ public class User extends BaseEntity {
     private String nickname;
 
     public User(
-            final UUID id,
-            final OffsetDateTime createdDateTime,
-            final OffsetDateTime modifiedDateTime,
-            final String name,
-            final String email,
-            final String nickname) {
+            UUID id,
+            OffsetDateTime createdDateTime,
+            OffsetDateTime modifiedDateTime,
+            String name,
+            String email,
+            String nickname) {
         super(id, createdDateTime, modifiedDateTime);
         this.name = name;
         this.email = email;
@@ -33,7 +33,7 @@ public class User extends BaseEntity {
         return this.nickname;
     }
 
-    public void setNickname(final String nickname) {
+    public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 }
