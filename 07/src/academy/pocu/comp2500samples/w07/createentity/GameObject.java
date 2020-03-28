@@ -15,8 +15,16 @@ public class GameObject {
     }
 
     public void update() {
+        System.out.println(String.format(
+                "Update GameObject '%s'",
+                this.name));
+
         for (Component component : this.components) {
             component.update();
         }
+
+        System.out.println(String.format(
+                "Updating '%s' complete",
+                this.name));
     }
 }

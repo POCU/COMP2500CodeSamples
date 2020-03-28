@@ -11,16 +11,17 @@ import java.util.List;
 public class Program {
     public static void main(String[] args) {
         GameObject batman = loadGameObjectOrNull("Batman");
-
         batman.update();
+
+        System.out.println();
 
         GameObject tree = loadGameObjectOrNull("Tree");
+        tree.update();
 
-        batman.update();
+        System.out.println();
 
         GameObject scaryVampire = loadGameObjectOrNull("ScaryVampire");
-
-        batman.update();
+        scaryVampire.update();
     }
 
     private static GameObject loadGameObjectOrNull(String name) {
