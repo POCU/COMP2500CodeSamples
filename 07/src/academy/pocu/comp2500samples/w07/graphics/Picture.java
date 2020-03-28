@@ -19,14 +19,36 @@ public class Picture extends Graphic {
 
         if (count > 0) {
             System.out.println(String.format(
-                    "Draw picture %s",
+                    "Draw picture '%s'",
                     this.label));
 
             for (int i = 0; i < count; ++i) {
-                System.out.println(String.format(
-                        "    %d. Draw picture %s",
-                        i + 1,
-                        this.label));
+                Graphic g = this.graphics.get(i);
+                Class c = g.getClass();
+                String className = c.getSimpleName();
+
+                switch (className) {
+                    case "Circle":
+                        ((Circle) g).draw();
+                        break;
+
+                    case "Point":
+                        ((Point) g).draw();
+                        break;
+
+                    case "Line":
+                        ((Line) g).draw();
+                        break;
+
+                    case "Picture":
+                        ((Picture) g).draw();
+                        break;
+
+                    default:
+                        throw new IllegalArgumentException(String.format(
+                                "Unknown graphic type %s",
+                                className));
+                }
             }
         }
     }

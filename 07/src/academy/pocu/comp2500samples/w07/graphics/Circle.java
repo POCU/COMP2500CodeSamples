@@ -23,7 +23,7 @@ public class Circle extends Graphic {
 
     public void draw() {
         System.out.println(String.format(
-                "Draw circle %s",
+                "Draw circle '%s'",
                 this.label));
     }
 }
