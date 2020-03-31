@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w08.elementalist;
+package academy.pocu.comp2500samples.w09.elementalist;
 
 public class Program {
     public static void main(String[] args) {

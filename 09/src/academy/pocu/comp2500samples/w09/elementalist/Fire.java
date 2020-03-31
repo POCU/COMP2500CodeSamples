@@ -1,36 +1,36 @@
-package academy.pocu.comp2500samples.w08.elementalist;
+package academy.pocu.comp2500samples.w09.elementalist;
 
 import java.time.Duration;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-public class Earth extends Attunement {
-    private final int ELITE_SKILL_COOLDOWN_TIME_SEC = 100;
+public class Fire extends Attunement {
+    private final int ELITE_SKILL_COOLDOWN_TIME_SEC = 90;
 
-    public Earth(Elementalist elementalist) {
+    public Fire(Elementalist elementalist) {
         super(elementalist);
     }
 
     public void onEntry() {
-        System.out.println("As heavy as earth!");
+        System.out.println("I am fire! Burn everything to the ground!");
     }
 
     public void attack() {
-        System.out.println("Stone edge!");
+        System.out.println("Fire~~~ Ball~~~~~!!!");
     }
 
     public void useEliteSkill(OffsetDateTime dateTime) {
         OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
 
         if (now.compareTo(dateTime.plus(Duration.ofSeconds(ELITE_SKILL_COOLDOWN_TIME_SEC))) > 0) {
-            System.out.println("Feel the wrath of Mother Earth!");
-            System.out.println("Earthquake!");
+            System.out.println("Burn everything to cinders!");
+            System.out.println("Fire~~~~ Storm~~~~!!!!");
         } else {
             System.out.println("I can't use this yet!");
         }
     }
 
     public void onDeath() {
-        System.out.println("Now I rest in Mother Earth...");
+        System.out.println("I will rise again like a phoenix...");
     }
 }
