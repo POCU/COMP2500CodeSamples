@@ -7,6 +7,7 @@ public class Picture extends Graphic {
 
     public Picture(String label) {
         super(label);
+        
         this.graphics = new ArrayList<>();
     }
 
