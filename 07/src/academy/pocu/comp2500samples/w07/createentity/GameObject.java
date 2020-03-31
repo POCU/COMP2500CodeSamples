@@ -23,8 +23,7 @@ public class GameObject {
             component.update();
         }
 
-        System.out.println(String.format(
-                "Updating '%s' complete",
+        System.out.println(String.format("Updating '%s' complete",
                 this.name));
     }
 }

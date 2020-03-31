@@ -17,38 +17,38 @@ public class Picture extends Graphic {
     public void draw() {
         int count = this.graphics.size();
 
-        if (count > 0) {
-            System.out.println(String.format(
-                    "Draw picture '%s'",
-                    this.label));
+        if (count <= 0) {
+            return;
+        }
 
-            for (int i = 0; i < count; ++i) {
-                Graphic g = this.graphics.get(i);
-                Class c = g.getClass();
-                String className = c.getSimpleName();
+        System.out.println(String.format("Draw picture '%s'",
+                this.label));
 
-                switch (className) {
-                    case "Circle":
-                        ((Circle) g).draw();
-                        break;
+        for (int i = 0; i < count; ++i) {
+            Graphic g = this.graphics.get(i);
+            Class c = g.getClass();
+            String className = c.getSimpleName();
 
-                    case "Point":
-                        ((Point) g).draw();
-                        break;
+            switch (className) {
+                case "Circle":
+                    ((Circle) g).draw();
+                    break;
 
-                    case "Line":
-                        ((Line) g).draw();
-                        break;
+                case "Point":
+                    ((Point) g).draw();
+                    break;
 
-                    case "Picture":
-                        ((Picture) g).draw();
-                        break;
+                case "Line":
+                    ((Line) g).draw();
+                    break;
 
-                    default:
-                        throw new IllegalArgumentException(String.format(
-                                "Unknown graphic type %s",
-                                className));
-                }
+                case "Picture":
+                    ((Picture) g).draw();
+                    break;
+
+                default:
+                    String message = String.format("Unknown graphic type %s", className);
+                    throw new IllegalArgumentException(message);
             }
         }
     }

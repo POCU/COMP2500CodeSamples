@@ -4,10 +4,9 @@ public class Line extends Graphic {
     private Point p1;
     private Point p2;
 
-    public Line(
-            String label,
-            Point p1,
-            Point p2) {
+    public Line(String label,
+                Point p1,
+                Point p2) {
         super(label);
         this.p1 = p1;
         this.p2 = p2;
@@ -21,8 +20,7 @@ public class Line extends Graphic {
     }
 
     public void draw() {
-        System.out.println(String.format(
-                "Draw line '%s'",
+        System.out.println(String.format("Draw line '%s'",
                 this.label));
     }
 }

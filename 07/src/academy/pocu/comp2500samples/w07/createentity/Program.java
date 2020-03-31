@@ -35,45 +35,49 @@ public class Program {
 
         List<String> lines;
 
-        try
-        {
-            lines = Files.readAllLines(
-                    playerFilePath,
+        try {
+            lines = Files.readAllLines(playerFilePath,
                     StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return null;
         }
 
         assert (lines.size() == 1) : "Player setting file is not in correct format!";
 
         String[] components = lines.get(0).split(",", -1);
 
-        assert (components.length > 0) : String.format("No components found in %s", filename);
-
         GameObject obj = new GameObject(name);
 
         for (String c : components) {
-            switch (c) {
-                case "Ai":
+            ComponentType type;
+
+            try {
+                type = ComponentType.valueOf(c.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                return null;
+            }
+
+            switch (type) {
+                case AI:
                     obj.addComponent(new AiComponent());
                     break;
 
-                case "Controllable":
+                case CONTROLLABLE:
                     obj.addComponent(new ControllableComponent());
                     break;
 
-                case "Physics":
+                case PHYSICS:
                     obj.addComponent(new PhysicsComponent());
                     break;
 
-                case "Entity":
+                case ENTITY:
                     obj.addComponent(new EntityComponent());
                     break;
 
                 default:
-                    throw new IllegalArgumentException(String.format(
-                            "Unrecognized component: %s",
-                            c));
+                    return null;
             }
         }
 
@@ -81,12 +85,12 @@ public class Program {
     }
 
     private static String getClassPath() {
-        File f = new File(Program.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+        File file = new File(Program.class.getProtectionDomain().getCodeSource().getLocation().getPath());
         String packageName = Program.class.getPackageName();
         packageName = packageName.replace('.', '/');
 
-        Path p = Paths.get(f.getPath(), packageName);
+        Path path = Paths.get(file.getPath(), packageName);
 
-        return p.toAbsolutePath().normalize().toString();
+        return path.toAbsolutePath().normalize().toString();
     }
 }

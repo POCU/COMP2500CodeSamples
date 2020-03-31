@@ -4,10 +4,9 @@ public class Circle extends Graphic {
     private Point center;
     private int radius;
 
-    public Circle(
-            String label,
-            Point center,
-            int radius) {
+    public Circle(String label,
+                  Point center,
+                  int radius) {
         super(label);
         this.center = center;
         this.radius = radius;
@@ -22,8 +21,7 @@ public class Circle extends Graphic {
     }
 
     public void draw() {
-        System.out.println(String.format(
-                "Draw circle '%s'",
+        System.out.println(String.format("Draw circle '%s'",
                 this.label));
     }
 }

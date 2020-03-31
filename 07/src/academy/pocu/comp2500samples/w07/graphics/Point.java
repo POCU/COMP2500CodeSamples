@@ -19,8 +19,7 @@ public class Point extends Graphic {
     }
 
     public void draw() {
-        System.out.println(String.format(
-                "Draw point '%s'",
+        System.out.println(String.format("Draw point '%s'",
                 this.label));
     }
 }
