@@ -12,7 +12,7 @@ public class Line extends Graphic {
         this.p2 = p2;
     }
 
-    public double length() {
+    public double getLength() {
         int xDiff = this.p1.getX() - this.p2.getX();
         int yDiff = this.p1.getY() - this.p2.getY();
 
