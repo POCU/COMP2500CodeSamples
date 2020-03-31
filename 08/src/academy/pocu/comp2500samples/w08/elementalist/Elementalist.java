@@ -5,19 +5,15 @@ import java.time.ZoneOffset;
 
 public class Elementalist {
     private String name;
-    private int hp;
     private Attunement attunement;
     private OffsetDateTime lastEliteAttackUsageDateTime;
 
-    public Elementalist(String name, int hp) {
-        assert (hp > 0) : "hp must be greater than 0";
-
+    public Elementalist(String name) {
         this.name = name;
-        this.hp = hp;
         this.attunement = new None(this);
-        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(0,
-                0,
-                0,
+        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1,
+                1,
+                1,
                 0,
                 0,
                 0,
@@ -27,10 +23,6 @@ public class Elementalist {
 
     public String getName() {
         return this.name;
-    }
-
-    public int getHp() {
-        return this.hp;
     }
 
     public void setAttunement(Attunement attunement) {
@@ -46,13 +38,14 @@ public class Elementalist {
 
     public void useEliteSkill() {
         this.attunement.useEliteSkill(this.lastEliteAttackUsageDateTime);
+        this.lastEliteAttackUsageDateTime = OffsetDateTime.now(ZoneOffset.UTC);
     }
 
     public void onDeath() {
         this.attunement.onDeath();
-        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(0,
-                0,
-                0,
+        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1,
+                1,
+                1,
                 0,
                 0,
                 0,

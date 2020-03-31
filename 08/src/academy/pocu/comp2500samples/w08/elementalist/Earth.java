@@ -23,7 +23,7 @@ public class Earth extends Attunement {
         OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
 
         if (now.compareTo(dateTime.plus(Duration.ofSeconds(ELITE_SKILL_COOLDOWN_TIME_SEC))) > 0) {
-            System.out.println("Feel the wrath of the earth!");
+            System.out.println("Feel the wrath of Mother Earth!");
             System.out.println("Earthquake!");
         } else {
             System.out.println("I can't use this yet!");
