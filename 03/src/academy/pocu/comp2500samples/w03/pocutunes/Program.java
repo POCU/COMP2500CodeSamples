@@ -18,8 +18,7 @@ public class Program {
                 "Santa Baby",
                 166220);
 
-        Song houndDog = new Song(
-                "Elvis Presley",
+        Song houndDog = new Song("Elvis Presley",
                 "Hound Dog",
                 175220);
 
