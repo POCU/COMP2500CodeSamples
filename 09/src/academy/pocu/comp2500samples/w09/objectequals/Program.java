@@ -1,5 +1,7 @@
 package academy.pocu.comp2500samples.w09.objectequals;
 
+import java.util.HashSet;
+
 public class Program {
     public static void main(String[] args) {
         Point p1 = new Point(4, 1);
@@ -24,5 +26,10 @@ public class Program {
                 new Point(9, 11));
 
         System.out.println(l1.equals(l3));
+
+        HashSet<Point> hashSet = new HashSet<>();
+
+        hashSet.add(p1);
+        System.out.println(hashSet.contains(p3));
     }
 }
