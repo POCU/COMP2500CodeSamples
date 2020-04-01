@@ -11,14 +11,7 @@ public class Magician {
     public Magician(String name) {
         this.name = name;
         this.attunement = new None(this);
-        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1,
-                1,
-                1,
-                0,
-                0,
-                0,
-                0,
-                ZoneOffset.UTC);
+        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
     }
 
     public String getName() {
@@ -43,13 +36,6 @@ public class Magician {
 
     public void onDeath() {
         this.attunement.onDeath();
-        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1,
-                1,
-                1,
-                0,
-                0,
-                0,
-                0,
-                ZoneOffset.UTC);
+        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
     }
 }
