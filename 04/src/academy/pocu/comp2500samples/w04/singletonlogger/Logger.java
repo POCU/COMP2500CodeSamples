@@ -32,47 +32,48 @@ public class Logger {
     }
 
     public static Logger getInstance() {
-        if (instance == null) {
-            try {
-                String classPath = getClassPath();
-                Path loggerConfigPath = Paths.get(classPath, CONFIG_FILENAME);
-
-                File configFile = new File(loggerConfigPath.toString());
-
-                LogLevel logLevel = LogLevel.WARNING;
-                String outputFilename = "log.txt";
-
-                if (configFile.isFile()) {
-                    List<String> lines = Files.readAllLines(loggerConfigPath, StandardCharsets.UTF_8);
-
-                    for (String line : lines) {
-                        String[] splits = line.split("=");
-
-                        switch (splits[0]) {
-                            case "loglevel":
-                                logLevel = LogLevel.valueOf(splits[1]);
-                                break;
-
-                            case "output":
-                                outputFilename = splits[1];
-                                break;
-
-                            default:
-                                throw new IllegalArgumentException("Unknown configuration setting: " + splits[0]);
-                        }
-                    }
-                }
-
-                Path path = Paths.get(classPath, outputFilename);
-                String pathString = path.toString();
-
-                instance = new Logger(logLevel, pathString);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        if (instance != null) {
+            return instance;
         }
 
-        return instance;
+        try {
+            String classPath = getClassPath();
+            Path loggerConfigPath = Paths.get(classPath, CONFIG_FILENAME);
+
+            File configFile = new File(loggerConfigPath.toString());
+
+            LogLevel logLevel = LogLevel.WARNING;
+            String outputFilename = "log.txt";
+
+            if (configFile.isFile()) {
+                List<String> lines = Files.readAllLines(loggerConfigPath, StandardCharsets.UTF_8);
+
+                for (String line : lines) {
+                    String[] splits = line.split("=");
+
+                    switch (splits[0]) {
+                        case "loglevel":
+                            logLevel = LogLevel.valueOf(splits[1]);
+                            break;
+
+                        case "output":
+                            outputFilename = splits[1];
+                            break;
+
+                        default:
+                            throw new IllegalArgumentException("Unknown configuration setting: " + splits[0]);
+                    }
+                }
+            }
+
+            Path path = Paths.get(classPath, outputFilename);
+            String pathString = path.toString();
+
+            instance = new Logger(logLevel, pathString);
+            return instance;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void deleteInstance() {
@@ -106,15 +107,20 @@ public class Logger {
     }
 
     private void writeToFile(LogLevel logLevel, String message, Object... args) {
-        if (this.minLogLevel.getLogLevel() <= logLevel.getLogLevel()) {
-            try {
-                String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
-                this.outBuffer.write(log);
-                this.outBuffer.newLine();
-                this.outBuffer.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        if (this.minLogLevel.getLogLevel() > logLevel.getLogLevel()) {
+            return;
+        }
+
+        try {
+            String log = String.format("[%s] %s: %s",
+                    Instant.now().toString(),
+                    logLevel.toString(),
+                    String.format(message, args));
+            this.outBuffer.write(log);
+            this.outBuffer.newLine();
+            this.outBuffer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
