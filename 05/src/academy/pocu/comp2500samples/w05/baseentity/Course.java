@@ -10,12 +10,11 @@ public class Course extends BaseEntity {
     private String title;
     private ArrayList<CourseTerm> courseTerms;
 
-    public Course(
-            final UUID id,
-            final OffsetDateTime createdDateTime,
-            final OffsetDateTime modifiedDateTime,
-            final String courseCode,
-            final String title) {
+    public Course(UUID id,
+                  OffsetDateTime createdDateTime,
+                  OffsetDateTime modifiedDateTime,
+                  String courseCode,
+                  String title) {
         super(id, createdDateTime, modifiedDateTime);
         this.courseCode = courseCode;
         this.title = title;

@@ -9,11 +9,10 @@ public class CourseTerm extends BaseEntity {
     private Course course;
     private ArrayList<User> students;
 
-    public CourseTerm(
-            UUID id,
-            OffsetDateTime createdDateTime,
-            OffsetDateTime modifiedDateTime,
-            int term) {
+    public CourseTerm(UUID id,
+                      OffsetDateTime createdDateTime,
+                      OffsetDateTime modifiedDateTime,
+                      int term) {
         super(id, createdDateTime, modifiedDateTime);
         this.term = term;
         this.students = new ArrayList<>();

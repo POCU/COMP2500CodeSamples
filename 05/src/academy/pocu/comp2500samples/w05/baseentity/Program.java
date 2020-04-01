@@ -6,8 +6,7 @@ import java.util.UUID;
 
 public class Program {
     public static void main(String[] args) {
-        User user1 = new User(
-                UUID.randomUUID(),
+        User user1 = new User(UUID.randomUUID(),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 "Tom",
@@ -16,8 +15,7 @@ public class Program {
 
         printUserInformation(user1);
 
-        BaseEntity user2 = new User(
-                UUID.randomUUID(),
+        BaseEntity user2 = new User(UUID.randomUUID(),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 "Kevin",
@@ -34,15 +32,13 @@ public class Program {
 
         printUserInformation((User) user2);
 
-        Course comp2500 = new Course(
-                UUID.randomUUID(),
+        Course comp2500 = new Course(UUID.randomUUID(),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 "COMP2500",
                 "Java");
 
-        CourseTerm term202005 = new CourseTerm(
-                UUID.randomUUID(),
+        CourseTerm term202005 = new CourseTerm(UUID.randomUUID(),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 202005);
@@ -69,16 +65,13 @@ public class Program {
 
         printBaseEntityInformation(user);
 
-        System.out.println(String.format(
-                "    name: %s",
+        System.out.println(String.format("    name: %s",
                 user.getName()));
 
-        System.out.println(String.format(
-                "    email: %s",
+        System.out.println(String.format("    email: %s",
                 user.getEmail()));
 
-        System.out.println(String.format(
-                "    nickname: %s",
+        System.out.println(String.format("    nickname: %s",
                 user.getNickname()));
     }
 
@@ -87,37 +80,30 @@ public class Program {
 
         printBaseEntityInformation(course);
 
-        System.out.println(String.format(
-                "    course code: %s",
+        System.out.println(String.format("    course code: %s",
                 course.getCourseCode()));
 
-        System.out.println(String.format(
-                "    title: %s",
+        System.out.println(String.format("    title: %s",
                 course.getTitle()));
 
         System.out.println("    course terms:");
 
         for (CourseTerm courseTerm : course.getCourseTerms()) {
-            System.out.println(String.format(
-                    "        term: %s",
+            System.out.println(String.format("        term: %s",
                     courseTerm.getTerm()));
-            System.out.println(String.format(
-                    "        # students: %s",
+            System.out.println(String.format("        # students: %s",
                     courseTerm.getStudentCount()));
         }
     }
 
     private static void printBaseEntityInformation(BaseEntity entity) {
-        System.out.println(String.format(
-                "    id: %s",
+        System.out.println(String.format("    id: %s",
                 entity.getID()));
 
-        System.out.println(String.format(
-                "    created: %s",
+        System.out.println(String.format("    created: %s",
                 entity.getCreatedDateTime()));
 
-        System.out.println(String.format(
-                "    modified: %s",
+        System.out.println(String.format("    modified: %s",
                 entity.getModifiedDateTime()));
     }
 }

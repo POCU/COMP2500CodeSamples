@@ -8,10 +8,9 @@ public class BaseEntity {
     private OffsetDateTime createdDateTime;
     private OffsetDateTime modifiedDateTime;
 
-    public BaseEntity(
-            UUID id,
-            OffsetDateTime createdDateTime,
-            OffsetDateTime modifiedDateTime) {
+    public BaseEntity(UUID id,
+                      OffsetDateTime createdDateTime,
+                      OffsetDateTime modifiedDateTime) {
         this.id = id;
         this.createdDateTime = createdDateTime;
         this.modifiedDateTime = modifiedDateTime;
