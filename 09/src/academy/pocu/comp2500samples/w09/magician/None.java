@@ -1,10 +1,10 @@
-package academy.pocu.comp2500samples.w09.elementalist;
+package academy.pocu.comp2500samples.w09.magician;
 
 import java.time.OffsetDateTime;
 
 public class None extends Attunement {
-    public None(Elementalist elementalist) {
-        super(elementalist);
+    public None(Magician magician) {
+        super(magician);
     }
 
     public void onEntry() {

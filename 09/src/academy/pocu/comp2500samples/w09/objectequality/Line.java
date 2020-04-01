@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w09.objectequals;
+package academy.pocu.comp2500samples.w09.objectequality;
 
 public class Line {
     private Point p1;

@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w09.elementalist;
+package academy.pocu.comp2500samples.w09.magician;
 
 import java.time.Duration;
 import java.time.OffsetDateTime;
@@ -7,8 +7,8 @@ import java.time.ZoneOffset;
 public class Fire extends Attunement {
     private final int ELITE_SKILL_COOLDOWN_TIME_SEC = 90;
 
-    public Fire(Elementalist elementalist) {
-        super(elementalist);
+    public Fire(Magician magician) {
+        super(magician);
     }
 
     public void onEntry() {

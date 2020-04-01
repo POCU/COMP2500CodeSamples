@@ -1,14 +1,14 @@
-package academy.pocu.comp2500samples.w09.elementalist;
+package academy.pocu.comp2500samples.w09.magician;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-public class Elementalist {
+public class Magician {
     private String name;
     private Attunement attunement;
     private OffsetDateTime lastEliteAttackUsageDateTime;
 
-    public Elementalist(String name) {
+    public Magician(String name) {
         this.name = name;
         this.attunement = new None(this);
         this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1,

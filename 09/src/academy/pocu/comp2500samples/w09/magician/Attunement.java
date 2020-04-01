@@ -1,12 +1,12 @@
-package academy.pocu.comp2500samples.w09.elementalist;
+package academy.pocu.comp2500samples.w09.magician;
 
 import java.time.OffsetDateTime;
 
 public class Attunement {
-    protected Elementalist elementalist;
+    protected Magician magician;
 
-    public Attunement(Elementalist elementalist) {
-        this.elementalist = elementalist;
+    public Attunement(Magician magician) {
+        this.magician = magician;
     }
 
     public void onEntry() {
