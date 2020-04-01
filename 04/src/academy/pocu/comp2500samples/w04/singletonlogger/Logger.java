@@ -17,15 +17,13 @@ public class Logger {
     private static Logger instance;
 
     private LogLevel minLogLevel;
-    private String outputPath;
     private BufferedWriter outBuffer;
 
     private Logger(LogLevel minLogLevel, String outputPath) {
         this.minLogLevel = minLogLevel;
-        this.outputPath = outputPath;
 
         try {
-            this.outBuffer = new BufferedWriter(new FileWriter(this.outputPath));
+            this.outBuffer = new BufferedWriter(new FileWriter(outputPath));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -83,6 +81,10 @@ public class Logger {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+
+        if (instance != null) {
+            instance = null;
         }
     }
 
