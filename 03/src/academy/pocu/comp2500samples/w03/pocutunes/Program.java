@@ -6,7 +6,7 @@ public class Program {
                 "Hotel California",
                 180100);
 
-        Song stairwayToHeaven = new Song("Led Zeppelin",
+        Song heaven = new Song("Led Zeppelin",
                 "Stairway to Heaven",
                 172100);
 
@@ -26,7 +26,7 @@ public class Program {
                 "Basket Case",
                 193000);
 
-        Song allIWantForChristmasIsYou = new Song("Mariah Carey",
+        Song christmas = new Song("Mariah Carey",
                 "All I Want For Christmas Is You",
                 18301);
 
@@ -37,7 +37,7 @@ public class Program {
 
         Playlist playlist1 = new Playlist("Classic Rock");
         playlist1.addSong(hotelCalifornia);
-        playlist1.addSong(stairwayToHeaven);
+        playlist1.addSong(heaven);
         playlist1.addSong(houndDog);
 
         Playlist playlist2 = new Playlist("Millenial");
@@ -47,12 +47,12 @@ public class Program {
         PocuTunes tunes = new PocuTunes();
 
         tunes.addSong(hotelCalifornia);
-        tunes.addSong(stairwayToHeaven);
+        tunes.addSong(heaven);
         tunes.addSong(havana);
         tunes.addSong(santaBaby);
         tunes.addSong(houndDog);
         tunes.addSong(basketCase);
-        tunes.addSong(allIWantForChristmasIsYou);
+        tunes.addSong(christmas);
 
         System.out.printf("Song count %d\n",
                 tunes.getSongCount());
@@ -70,7 +70,7 @@ public class Program {
 
         playlist2.setName("Christmas Music");
         playlist2.removeSong("Havana");
-        playlist2.addSong(allIWantForChristmasIsYou);
+        playlist2.addSong(christmas);
 
         tunes.playPlaylist("Christmas Music");
 
