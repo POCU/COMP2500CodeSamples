@@ -29,9 +29,9 @@ public class Program {
 
         System.out.println(l1.equals(l3));
 
-        HashSet<Point> hashSet = new HashSet<>();
+        HashSet<Point> points = new HashSet<>();
 
-        hashSet.add(p1);
-        System.out.println(hashSet.contains(p3));
+        points.add(p1);
+        System.out.println(points.contains(p3));
     }
 }
