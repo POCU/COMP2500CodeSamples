@@ -1,10 +1,10 @@
 package academy.pocu.comp2500samples.w09.objectequality;
 
-public class Line {
+public final class Line {
     private Point p1;
     private Point p2;
 
-    public Line(Point p1, Point p2) {
+    public Line(final Point p1, final Point p2) {
         this.p1 = p1;
         this.p2 = p2;
     }

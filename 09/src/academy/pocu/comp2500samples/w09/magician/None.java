@@ -2,7 +2,7 @@ package academy.pocu.comp2500samples.w09.magician;
 
 import java.time.OffsetDateTime;
 
-public class None extends Attunement {
+public final class None extends Attunement {
     public None(Magician magician) {
         super(magician);
     }
@@ -15,7 +15,7 @@ public class None extends Attunement {
         System.out.println("Punch!");
     }
 
-    public void useEliteSkill(OffsetDateTime dateTime) {
+    public void useEliteSkill(final OffsetDateTime dateTime) {
         System.out.println("What elite attack? You expect me to punch monsters to death?");
     }
 

@@ -5,7 +5,7 @@ import java.time.OffsetDateTime;
 public class Attunement {
     protected Magician magician;
 
-    public Attunement(Magician magician) {
+    public Attunement(final Magician magician) {
         this.magician = magician;
     }
 

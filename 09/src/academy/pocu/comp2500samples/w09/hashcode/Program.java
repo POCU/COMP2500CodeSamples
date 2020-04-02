@@ -4,18 +4,18 @@ import java.util.HashSet;
 
 public class Program {
     public static void main(String[] args) {
-        HashSet<Point> pointHashSet = new HashSet<>();
+        HashSet<Point> points = new HashSet<>();
 
         Point p1 = new Point(1, 7);
         Point p2 = new Point(1, 7);
         Point p3 = new Point(7, 1);
 
-        pointHashSet.add(p1);
+        points.add(p1);
 
-        System.out.println(pointHashSet.contains(p2));
-        System.out.println(pointHashSet.contains(p3));
+        System.out.println(points.contains(p2));
+        System.out.println(points.contains(p3));
 
-        HashSet<Line> lineHashSet = new HashSet<>();
+        HashSet<Line> lines = new HashSet<>();
 
         Line l1 = new Line(p1, p3);
 
@@ -24,10 +24,10 @@ public class Program {
 
         Line l2 = new Line(p4, p5);
 
-        lineHashSet.add(l1);
-        System.out.println(lineHashSet.contains(l2));
+        lines.add(l1);
+        System.out.println(lines.contains(l2));
 
         Line l3 = new Line(p5, p4);
-        System.out.println(lineHashSet.contains(l3));
+        System.out.println(lines.contains(l3));
     }
 }

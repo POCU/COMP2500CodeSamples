@@ -4,8 +4,8 @@ import java.time.Duration;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-public class Air extends Attunement {
-    private final int ELITE_SKILL_COOLDOWN_TIME_SEC = 80;
+public final class Air extends Attunement {
+    private final int ELITE_SKILL_COOLDOWN_SECS = 80;
 
     public Air(Magician magician) {
         super(magician);
@@ -19,10 +19,13 @@ public class Air extends Attunement {
         System.out.println("Electric whip!");
     }
 
-    public void useEliteSkill(OffsetDateTime dateTime) {
-        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+    public void useEliteSkill(final OffsetDateTime dateTime) {
+        final OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
 
-        if (now.compareTo(dateTime.plus(Duration.ofSeconds(ELITE_SKILL_COOLDOWN_TIME_SEC))) > 0) {
+        final Duration cooldown = Duration.ofSeconds(ELITE_SKILL_COOLDOWN_SECS);
+        final OffsetDateTime cooldownExpireDateTime = dateTime.plus(cooldown);
+
+        if (now.compareTo(cooldownExpireDateTime) > 0) {
             System.out.println("You will be zapped!");
             System.out.println("1 million volt lightning!");
         } else {

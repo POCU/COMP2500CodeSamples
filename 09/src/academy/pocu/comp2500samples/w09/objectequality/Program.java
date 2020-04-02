@@ -22,8 +22,10 @@ public class Program {
         System.out.println(l1 == l2);
         System.out.println(l1.equals(l2));
 
-        Line l3 = new Line(new Point(4, 1),
-                new Point(9, 11));
+        Point p5 = new Point(4, 1);
+        Point p6 = new Point(9, 11);
+
+        Line l3 = new Line(p5, p6);
 
         System.out.println(l1.equals(l3));
 

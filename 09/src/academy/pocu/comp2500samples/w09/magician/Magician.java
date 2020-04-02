@@ -3,7 +3,7 @@ package academy.pocu.comp2500samples.w09.magician;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-public class Magician {
+public final class Magician {
     private String name;
     private Attunement attunement;
     private OffsetDateTime lastEliteAttackUsageDateTime;
@@ -18,7 +18,7 @@ public class Magician {
         return this.name;
     }
 
-    public void setAttunement(Attunement attunement) {
+    public void setAttunement(final Attunement attunement) {
         if (this.attunement.getClass() != attunement.getClass()) {
             this.attunement = attunement;
             this.attunement.onEntry();

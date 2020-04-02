@@ -1,10 +1,10 @@
 package academy.pocu.comp2500samples.w09.objectequality;
 
-public class Point {
+public final class Point {
     private int x;
     private int y;
 
-    public Point(int x, int y) {
+    public Point(final int x, final int y) {
         this.x = x;
         this.y = y;
     }

@@ -1,6 +1,6 @@
 package academy.pocu.comp2500samples.w09.hashcode;
 
-public class Point {
+public final class Point {
     private int x;
     private int y;
 
