@@ -43,12 +43,11 @@ public class Course extends BaseEntity {
 
     // helper methods
     public void addCourseTerm(int term) {
-        CourseTerm courseTerm = new CourseTerm(
-                UUID.randomUUID(),
+        CourseTerm courseTerm = new CourseTerm(UUID.randomUUID(),
                 OffsetDateTime.now(ZoneOffset.UTC),
                 OffsetDateTime.now(ZoneOffset.UTC),
+                this,
                 term);
-        courseTerm.setCourse(this);
 
         this.courseTerms.add(courseTerm);
     }
