@@ -7,14 +7,11 @@ import java.util.UUID;
 public class CourseTerm extends BaseEntity {
     private int term;
     private Course course;
-    private ArrayList<User> students;
+    private ArrayList<Student> students;
 
-    public CourseTerm(
-            UUID id,
-            OffsetDateTime createdDateTime,
-            OffsetDateTime modifiedDateTime,
-            int term) {
+    public CourseTerm(UUID id, OffsetDateTime createdDateTime, OffsetDateTime modifiedDateTime, Course course, int term) {
         super(id, createdDateTime, modifiedDateTime);
+        this.course = course;
         this.term = term;
         this.students = new ArrayList<>();
     }
@@ -27,21 +24,17 @@ public class CourseTerm extends BaseEntity {
         return this.course;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public ArrayList<User> getStudents() {
+    public ArrayList<Student> getStudents() {
         return this.students;
     }
 
-    public void setStudents(ArrayList<User> students) {
+    public void setStudents(ArrayList<Student> students) {
         this.students = students;
     }
 
     // helper methods
-    public void addStudent(User user) {
-        this.students.add(user);
+    public void addStudent(Student student) {
+        this.students.add(student);
     }
 
     public int getStudentCount() {

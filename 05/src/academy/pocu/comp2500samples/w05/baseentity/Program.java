@@ -6,48 +6,58 @@ import java.util.UUID;
 
 public class Program {
     public static void main(String[] args) {
-        User user1 = new User(
-                UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        UUID id = UUID.randomUUID();
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        Student student1 = new Student(id,
+                now,
+                now,
                 "Tom",
                 "Smith",
                 "tommy hammer");
 
-        printUserInformation(user1);
+        printStudentInformation(student1);
 
-        BaseEntity user2 = new User(
-                UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        id = UUID.randomUUID();
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        BaseEntity student2 = new Student(id,
+                now,
+                now,
                 "Kevin",
                 "Park",
                 "KtotheP");
 
         // Compile Error!
-        // printUserInformation(user2);
+        // printStudentInformation(student2);
 
-        printUserInformation((User) user2);
+        printStudentInformation((Student) student2);
 
-        ((User) user2).setNickname("KevinInThePark");
-        user2.setModifiedDateTime(OffsetDateTime.now(ZoneOffset.UTC));
+        ((Student) student2).setNickname("KevinInThePark");
 
-        printUserInformation((User) user2);
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+        student2.setModifiedDateTime(now);
 
-        Course comp2500 = new Course(
-                UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        printStudentInformation((Student) student2);
+
+        id = UUID.randomUUID();
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        Course comp2500 = new Course(id,
+                now,
+                now,
                 "COMP2500",
                 "Java");
 
-        CourseTerm term202005 = new CourseTerm(
-                UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        id = UUID.randomUUID();
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        CourseTerm term202005 = new CourseTerm(id,
+                now,
+                now,
+                comp2500,
                 202005);
 
-        term202005.setCourse(comp2500);
         comp2500.getCourseTerms().add(term202005);
 
         printCourseInformation(comp2500);
@@ -56,30 +66,27 @@ public class Program {
 
         printCourseInformation(comp2500);
 
-        term202005.addStudent(user1);
-        term202005.addStudent((User) user2);
+        term202005.addStudent(student1);
+        term202005.addStudent((Student) student2);
 
         comp2500.setTitle("Object Oriented Programming and Design (Java)");
 
         printCourseInformation(comp2500);
     }
 
-    private static void printUserInformation(User user) {
-        System.out.println("user:");
+    private static void printStudentInformation(Student student) {
+        System.out.println("student:");
 
-        printBaseEntityInformation(user);
+        printBaseEntityInformation(student);
 
-        System.out.println(String.format(
-                "    name: %s",
-                user.getName()));
+        System.out.printf ("    name: %s\n",
+                student.getName());
 
-        System.out.println(String.format(
-                "    email: %s",
-                user.getEmail()));
+        System.out.printf("    email: %s\n",
+                student.getEmail());
 
-        System.out.println(String.format(
-                "    nickname: %s",
-                user.getNickname()));
+        System.out.printf("    nickname: %s\n",
+                student.getNickname());
     }
 
     private static void printCourseInformation(Course course) {
@@ -87,37 +94,30 @@ public class Program {
 
         printBaseEntityInformation(course);
 
-        System.out.println(String.format(
-                "    course code: %s",
-                course.getCourseCode()));
+        System.out.printf("    course code: %s\n",
+                course.getCourseCode());
 
-        System.out.println(String.format(
-                "    title: %s",
-                course.getTitle()));
+        System.out.printf("    title: %s\n",
+                course.getTitle());
 
         System.out.println("    course terms:");
 
         for (CourseTerm courseTerm : course.getCourseTerms()) {
-            System.out.println(String.format(
-                    "        term: %s",
-                    courseTerm.getTerm()));
-            System.out.println(String.format(
-                    "        # students: %s",
-                    courseTerm.getStudentCount()));
+            System.out.printf("        term: %s\n",
+                    courseTerm.getTerm());
+            System.out.printf("        # students: %s\n",
+                    courseTerm.getStudentCount());
         }
     }
 
     private static void printBaseEntityInformation(BaseEntity entity) {
-        System.out.println(String.format(
-                "    id: %s",
-                entity.getID()));
+        System.out.printf("    id: %s\n",
+                entity.getID());
 
-        System.out.println(String.format(
-                "    created: %s",
-                entity.getCreatedDateTime()));
+        System.out.printf("    created: %s\n",
+                entity.getCreatedDateTime());
 
-        System.out.println(String.format(
-                "    modified: %s",
-                entity.getModifiedDateTime()));
+        System.out.printf("    modified: %s\n",
+                entity.getModifiedDateTime());
     }
 }

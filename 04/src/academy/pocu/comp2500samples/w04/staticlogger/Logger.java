@@ -16,7 +16,6 @@ public class Logger {
 
     private static LogLevel logLevel = LogLevel.WARNING;
     private static boolean isConfigLoaded = false;
-    private static String outputPath;
     private static BufferedWriter bufferOut;
 
     private Logger() {
@@ -52,7 +51,7 @@ public class Logger {
             }
 
             Path path = Paths.get(classPath, outputFilename);
-            outputPath = path.toString();
+            String outputPath = path.toString();
 
             bufferOut = new BufferedWriter(new FileWriter(outputPath));
 
@@ -98,15 +97,21 @@ public class Logger {
     }
 
     private static void writeToFile(LogLevel logLevel, String message, Object... args) {
-        if (isConfigLoaded && Logger.logLevel.getLogLevel() <= logLevel.getLogLevel()) {
-            try {
-                String log = String.format("[%s] %s: %s", Instant.now().toString(), logLevel.toString(), String.format(message, args));
-                bufferOut.write(log);
-                bufferOut.newLine();
-                bufferOut.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+        if (!isConfigLoaded || Logger.logLevel.getLogLevel() > logLevel.getLogLevel()) {
+            return;
+        }
+
+        try {
+            String log = String.format("[%s] %s: %s",
+                    Instant.now().toString(),
+                    logLevel.toString(),
+                    String.format(message, args));
+            bufferOut.write(log);
+            bufferOut.newLine();
+            bufferOut.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

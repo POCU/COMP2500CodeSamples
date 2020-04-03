@@ -3,17 +3,17 @@ package academy.pocu.comp2500samples.w05.baseentity;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public class User extends BaseEntity {
+public class Student extends BaseEntity {
     private String name;
     private String email;
     private String nickname;
 
-    public User(UUID id,
-                OffsetDateTime createdDateTime,
-                OffsetDateTime modifiedDateTime,
-                String name,
-                String email,
-                String nickname) {
+    public Student(UUID id,
+                   OffsetDateTime createdDateTime,
+                   OffsetDateTime modifiedDateTime,
+                   String name,
+                   String email,
+                   String nickname) {
         super(id, createdDateTime, modifiedDateTime);
         this.name = name;
         this.email = email;

@@ -2,50 +2,42 @@ package academy.pocu.comp2500samples.w03.pocutunes;
 
 public class Program {
     public static void main(String[] args) {
-        Song hotelCalifornia = new Song(
-                "Eagles",
+        Song hotelCalifornia = new Song("Eagles",
                 "Hotel California",
                 180100);
 
-        Song stairwayToHeaven = new Song(
-                "Led Zeppelin",
+        Song heaven = new Song("Led Zeppelin",
                 "Stairway to Heaven",
                 172100);
 
-        Song havana = new Song(
-                "Camila Cabello",
+        Song havana = new Song("Camila Cabello",
                 "Havana",
                 182200);
 
-        Song santaBaby = new Song(
-                "Ariana Grade",
+        Song santaBaby = new Song("Ariana Grade",
                 "Santa Baby",
                 166220);
 
-        Song houndDog = new Song(
-                "Elvis Presley",
+        Song houndDog = new Song("Elvis Presley",
                 "Hound Dog",
                 175220);
 
-        Song basketCase = new Song(
-                "Green Day",
+        Song basketCase = new Song("Green Day",
                 "Basket Case",
                 193000);
 
-        Song allIWantForChristmasIsYou = new Song(
-                "Mariah Carey",
+        Song christmas = new Song("Mariah Carey",
                 "All I Want For Christmas Is You",
                 18301);
 
-        System.out.println(String.format(
-                "%s by %s. Playtime is %d.",
+        System.out.printf("%s by %s. Playtime is %d.\n",
                 hotelCalifornia.getName(),
                 hotelCalifornia.getArtist(),
-                hotelCalifornia.getPlaytimeInMilliSeconds()));
+                hotelCalifornia.getPlaytimeInMilliSeconds());
 
         Playlist playlist1 = new Playlist("Classic Rock");
         playlist1.addSong(hotelCalifornia);
-        playlist1.addSong(stairwayToHeaven);
+        playlist1.addSong(heaven);
         playlist1.addSong(houndDog);
 
         Playlist playlist2 = new Playlist("Millenial");
@@ -55,16 +47,15 @@ public class Program {
         PocuTunes tunes = new PocuTunes();
 
         tunes.addSong(hotelCalifornia);
-        tunes.addSong(stairwayToHeaven);
+        tunes.addSong(heaven);
         tunes.addSong(havana);
         tunes.addSong(santaBaby);
         tunes.addSong(houndDog);
         tunes.addSong(basketCase);
-        tunes.addSong(allIWantForChristmasIsYou);
+        tunes.addSong(christmas);
 
-        System.out.println(String.format(
-                "Song count %d",
-                tunes.getSongCount()));
+        System.out.printf("Song count %d\n",
+                tunes.getSongCount());
 
         tunes.addPlaylist(playlist1);
         tunes.addPlaylist(playlist2);
@@ -79,7 +70,7 @@ public class Program {
 
         playlist2.setName("Christmas Music");
         playlist2.removeSong("Havana");
-        playlist2.addSong(allIWantForChristmasIsYou);
+        playlist2.addSong(christmas);
 
         tunes.playPlaylist("Christmas Music");
 
@@ -89,9 +80,8 @@ public class Program {
 
         tunes.removePlaylist("Christmas Music");
 
-        System.out.println(String.format(
-                "Song count %d.",
-                tunes.getSongCount()));
+        System.out.printf("Song count %d.\n",
+                tunes.getSongCount());
         tunes.playPlaylist("Christmas Music");
     }
 }
