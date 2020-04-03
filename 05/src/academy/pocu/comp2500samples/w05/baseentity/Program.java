@@ -6,18 +6,24 @@ import java.util.UUID;
 
 public class Program {
     public static void main(String[] args) {
-        Student student1 = new Student(UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        UUID id = UUID.randomUUID();
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        Student student1 = new Student(id,
+                now,
+                now,
                 "Tom",
                 "Smith",
                 "tommy hammer");
 
         printStudentInformation(student1);
 
-        BaseEntity student2 = new Student(UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        id = UUID.randomUUID();
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        BaseEntity student2 = new Student(id,
+                now,
+                now,
                 "Kevin",
                 "Park",
                 "KtotheP");
@@ -28,19 +34,27 @@ public class Program {
         printStudentInformation((Student) student2);
 
         ((Student) student2).setNickname("KevinInThePark");
-        student2.setModifiedDateTime(OffsetDateTime.now(ZoneOffset.UTC));
+
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+        student2.setModifiedDateTime(now);
 
         printStudentInformation((Student) student2);
 
-        Course comp2500 = new Course(UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        id = UUID.randomUUID();
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        Course comp2500 = new Course(id,
+                now,
+                now,
                 "COMP2500",
                 "Java");
 
-        CourseTerm term202005 = new CourseTerm(UUID.randomUUID(),
-                OffsetDateTime.now(ZoneOffset.UTC),
-                OffsetDateTime.now(ZoneOffset.UTC),
+        id = UUID.randomUUID();
+        now = OffsetDateTime.now(ZoneOffset.UTC);
+
+        CourseTerm term202005 = new CourseTerm(id,
+                now,
+                now,
                 comp2500,
                 202005);
 

@@ -16,10 +16,12 @@ public class Program {
                 vectorClass.getTypeName());
 
         Method[] methods = vectorClass.getMethods();
+
         System.out.printf("# methods: %d\n",
                 methods.length);
 
         methods = vectorClass.getDeclaredMethods();
+
         System.out.printf("# declared methods: %d\n",
                 methods.length);
 
@@ -29,14 +31,18 @@ public class Program {
         }
 
         try {
-            Method method = vectorClass.getMethod("toString");
+            Method method = vectorClass
+                    .getMethod("toString");
+
             System.out.println(method.toString());
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
 
         try {
-            Method method = vectorClass.getDeclaredMethod("toString");
+            Method method = vectorClass
+                    .getDeclaredMethod("toString");
+
             System.out.println(method.toString());
         } catch (NoSuchMethodException e) {
             System.out.println("No such method!");
@@ -44,6 +50,7 @@ public class Program {
 
         try {
             Method method = vectorClass.getDeclaredMethod("changeName");
+
             System.out.println(method.toString());
         } catch (NoSuchMethodException e) {
             System.out.println("No such method!");
@@ -51,17 +58,20 @@ public class Program {
 
         try {
             Method method = vectorClass.getDeclaredMethod("add", Vector.class);
+
             System.out.println(method.toString());
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
 
-        Field[] fields = vectorClass.getDeclaredFields();
+        Field[] fields = vectorClass
+                .getDeclaredFields();
 
         System.out.printf("# member vars: %d\n",
                 fields.length);
 
-        Class objectClass = vectorClass.getSuperclass();
+        Class objectClass = vectorClass
+                .getSuperclass();
 
         System.out.printf("Superclass: %s\n",
                 objectClass.getTypeName());
