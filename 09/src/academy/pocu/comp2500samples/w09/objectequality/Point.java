@@ -18,12 +18,14 @@ public final class Point {
     }
 
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Point)) {
-            return false;
+        if (obj == this) {
+            return true;
         }
 
-        if (super.equals(obj)) {
-            return true;
+        if (obj == null
+                || !(obj instanceof Point)
+                || !super.equals(obj)) {
+            return false;
         }
 
         Point other = (Point) obj;

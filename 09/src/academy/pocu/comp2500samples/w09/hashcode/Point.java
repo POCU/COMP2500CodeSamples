@@ -18,15 +18,14 @@ public final class Point {
     }
 
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Point)) {
-            return false;
-        }
-
-        if (super.equals(obj)) {
+        if (obj == this) {
             return true;
         }
 
-        if (this.hashCode() != obj.hashCode()) {
+        if (obj == null
+                || !(obj instanceof Point)
+                || !super.equals(obj)
+                || this.hashCode() != obj.hashCode()) {
             return false;
         }
 

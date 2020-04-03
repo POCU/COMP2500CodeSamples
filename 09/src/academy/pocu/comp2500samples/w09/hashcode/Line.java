@@ -17,19 +17,18 @@ public final class Line {
     }
 
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Line)) {
-            return false;
-        }
-
-        if (super.equals(obj)) {
+        if (obj == this) {
             return true;
         }
 
-        if (this.hashCode() != obj.hashCode()) {
+        if (obj == null
+                || !(obj instanceof Line)
+                || !super.equals(obj)
+                || this.hashCode() != obj.hashCode()) {
             return false;
         }
 
-        Line other = (Line)obj;
+        Line other = (Line) obj;
         return this.p1.equals(other.p1) && this.p2.equals(other.p2);
     }
 

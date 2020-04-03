@@ -17,12 +17,14 @@ public final class Line {
     }
 
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Line)) {
-            return false;
+        if (obj == this) {
+            return true;
         }
 
-        if (super.equals(obj)) {
-            return true;
+        if (obj == null
+                || !(obj instanceof Line)
+                || !super.equals(obj)) {
+            return false;
         }
 
         Line other = (Line) obj;
