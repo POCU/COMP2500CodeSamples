@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w07.createentity;
+package academy.pocu.comp2500samples.w07.entitycomponentsystem;
 
 import java.util.ArrayList;
 
@@ -15,15 +15,12 @@ public class GameObject {
     }
 
     public void update() {
-        System.out.println(String.format(
-                "Update GameObject '%s'",
-                this.name));
+        System.out.printf("Update GameObject '%s'\n", this.name);
 
         for (Component component : this.components) {
             component.update();
         }
 
-        System.out.println(String.format("Updating '%s' complete",
-                this.name));
+        System.out.printf("Updating '%s' complete\n", this.name);
     }
 }

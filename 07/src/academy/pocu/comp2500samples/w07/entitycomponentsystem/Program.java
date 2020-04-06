@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w07.createentity;
+package academy.pocu.comp2500samples.w07.entitycomponentsystem;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,8 +27,8 @@ public class Program {
     private static GameObject loadGameObjectOrNull(String name) {
         String directory = getClassPath();
         String filename = String.format("%s.txt", name);
-        Path playerFilePath = Paths.get(directory, filename);
-        File playerFile = new File(playerFilePath.toString());
+        Path filepath = Paths.get(directory, filename);
+        File playerFile = new File(filepath.toString());
 
         if (!playerFile.isFile()) {
             return null;
@@ -37,7 +37,7 @@ public class Program {
         List<String> lines;
 
         try {
-            lines = Files.readAllLines(playerFilePath,
+            lines = Files.readAllLines(filepath,
                     StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,7 +46,8 @@ public class Program {
 
         assert (lines.size() == 1) : "Player setting file is not in correct format!";
 
-        String[] components = lines.get(0).split(",", -1);
+        String[] components = lines.get(0)
+                .split(",", -1);
 
         GameObject obj = new GameObject(name);
 
