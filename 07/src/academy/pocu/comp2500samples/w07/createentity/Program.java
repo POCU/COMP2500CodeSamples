@@ -25,8 +25,9 @@ public class Program {
     }
 
     private static GameObject loadGameObjectOrNull(String name) {
+        String directory = getClassPath();
         String filename = String.format("%s.txt", name);
-        Path playerFilePath = Paths.get(getClassPath(), filename);
+        Path playerFilePath = Paths.get(directory, filename);
         File playerFile = new File(playerFilePath.toString());
 
         if (!playerFile.isFile()) {

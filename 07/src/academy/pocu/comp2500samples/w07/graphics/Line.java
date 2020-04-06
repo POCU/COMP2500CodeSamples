@@ -20,7 +20,6 @@ public class Line extends Graphic {
     }
 
     public void draw() {
-        System.out.println(String.format("Draw line '%s'",
-                this.label));
+        System.out.printf("Draw line '%s'\n", this.label);
     }
 }
