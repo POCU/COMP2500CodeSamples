@@ -22,8 +22,7 @@ public class Picture extends Graphic {
             return;
         }
 
-        System.out.println(String.format("Draw picture '%s'",
-                this.label));
+        System.out.printf("Draw picture '%s'\n", this.label);
 
         for (int i = 0; i < count; ++i) {
             Graphic g = this.graphics.get(i);

@@ -21,7 +21,6 @@ public class Circle extends Graphic {
     }
 
     public void draw() {
-        System.out.println(String.format("Draw circle '%s'",
-                this.label));
+        System.out.printf("Draw circle '%s'\n", this.label);
     }
 }
