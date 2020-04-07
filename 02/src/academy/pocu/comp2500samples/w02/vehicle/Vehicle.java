@@ -9,11 +9,11 @@ public class Vehicle {
     public int mileage;
 
     public Vehicle(VehicleType type) {
-        this(type, new ArrayList<Passenger>(), 0);
+        this(type, new ArrayList<Passenger>(), 0.0);
     }
 
     public Vehicle(VehicleType type, ArrayList<Passenger> passengers) {
-        this(type, passengers, 0);
+        this(type, passengers, 0.0);
     }
 
     public Vehicle(VehicleType type, double fuelAmount) {
