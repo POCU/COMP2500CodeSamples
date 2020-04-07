@@ -16,11 +16,11 @@ public class Logger {
 
     private static Logger instance;
 
-    private LogLevel minLogLevel;
+    private LogLevel logLevel;
     private BufferedWriter outBuffer;
 
-    private Logger(LogLevel minLogLevel, String outputPath) {
-        this.minLogLevel = minLogLevel;
+    private Logger(LogLevel logLevel, String outputPath) {
+        this.logLevel = logLevel;
 
         try {
             this.outBuffer = new BufferedWriter(new FileWriter(outputPath));
@@ -109,7 +109,7 @@ public class Logger {
     }
 
     private void writeToFile(LogLevel logLevel, String message, Object... args) {
-        if (this.minLogLevel.getLogLevel() > logLevel.getLogLevel()) {
+        if (this.logLevel.getLogLevel() > logLevel.getLogLevel()) {
             return;
         }
 
