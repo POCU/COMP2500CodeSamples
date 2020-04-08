@@ -15,7 +15,7 @@ public final class None extends Attunement {
         System.out.println("Punch!");
     }
 
-    public void useEliteSkill(final OffsetDateTime dateTime) {
+    public void useEliteSkill(final OffsetDateTime lastEliteAttackUsedDateTime) {
         System.out.println("What elite attack? You expect me to punch monsters to death?");
     }
 

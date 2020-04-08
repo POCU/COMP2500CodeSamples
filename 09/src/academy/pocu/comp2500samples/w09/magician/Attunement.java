@@ -17,7 +17,7 @@ public class Attunement {
 
     }
 
-    public void useEliteSkill(OffsetDateTime dateTime) {
+    public void useEliteSkill(OffsetDateTime lastEliteAttackUsedDateTime) {
 
     }
 

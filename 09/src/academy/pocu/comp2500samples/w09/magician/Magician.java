@@ -6,12 +6,12 @@ import java.time.ZoneOffset;
 public final class Magician {
     private String name;
     private Attunement attunement;
-    private OffsetDateTime lastEliteAttackUsageDateTime;
+    private OffsetDateTime lastEliteAttackUsedDateTime;
 
     public Magician(String name) {
         this.name = name;
         this.attunement = new None(this);
-        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
+        this.lastEliteAttackUsedDateTime = OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
     }
 
     public String getName() {
@@ -30,12 +30,12 @@ public final class Magician {
     }
 
     public void useEliteSkill() {
-        this.attunement.useEliteSkill(this.lastEliteAttackUsageDateTime);
-        this.lastEliteAttackUsageDateTime = OffsetDateTime.now(ZoneOffset.UTC);
+        this.attunement.useEliteSkill(this.lastEliteAttackUsedDateTime);
+        this.lastEliteAttackUsedDateTime = OffsetDateTime.now(ZoneOffset.UTC);
     }
 
     public void onDeath() {
         this.attunement.onDeath();
-        this.lastEliteAttackUsageDateTime = OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
+        this.lastEliteAttackUsedDateTime = OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
     }
 }

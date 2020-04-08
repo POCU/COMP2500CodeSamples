@@ -19,11 +19,12 @@ public final class Fire extends Attunement {
         System.out.println("Fire~~~ Ball~~~~~!!!");
     }
 
-    public void useEliteSkill(final OffsetDateTime dateTime) {
+    public void useEliteSkill(final OffsetDateTime lastEliteAttackUsedDateTime) {
         final OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
 
         final Duration cooldown = Duration.ofSeconds(ELITE_SKILL_COOLDOWN_SECS);
-        final OffsetDateTime cooldownExpireDateTime = dateTime.plus(cooldown);
+
+        final OffsetDateTime cooldownExpireDateTime = lastEliteAttackUsedDateTime.plus(cooldown);
 
         if (now.compareTo(cooldownExpireDateTime) > 0) {
             System.out.println("Burn everything to cinders!");
