@@ -24,7 +24,6 @@ public final class Point {
 
         if (obj == null
                 || !(obj instanceof Point)
-                || !super.equals(obj)
                 || this.hashCode() != obj.hashCode()) {
             return false;
         }

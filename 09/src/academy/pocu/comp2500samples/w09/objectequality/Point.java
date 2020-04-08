@@ -23,8 +23,7 @@ public final class Point {
         }
 
         if (obj == null
-                || !(obj instanceof Point)
-                || !super.equals(obj)) {
+                || !(obj instanceof Point)) {
             return false;
         }
 

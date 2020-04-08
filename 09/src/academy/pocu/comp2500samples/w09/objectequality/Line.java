@@ -22,8 +22,7 @@ public final class Line {
         }
 
         if (obj == null
-                || !(obj instanceof Line)
-                || !super.equals(obj)) {
+                || !(obj instanceof Line)) {
             return false;
         }
 

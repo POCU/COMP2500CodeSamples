@@ -23,7 +23,6 @@ public final class Line {
 
         if (obj == null
                 || !(obj instanceof Line)
-                || !super.equals(obj)
                 || this.hashCode() != obj.hashCode()) {
             return false;
         }
