@@ -42,7 +42,7 @@ public class Program {
 
         Playlist playlist2 = new Playlist("Millenial");
         playlist2.addSong(havana);
-        playlist2.addSong((santaBaby));
+        playlist2.addSong(santaBaby);
 
         PocuTunes tunes = new PocuTunes();
 
