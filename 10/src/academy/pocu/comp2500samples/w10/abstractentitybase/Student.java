@@ -3,7 +3,7 @@ package academy.pocu.comp2500samples.w10.abstractentitybase;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public class Student extends BaseEntity {
+public final class Student extends BaseEntity {
     private String name;
     private String email;
     private String nickname;

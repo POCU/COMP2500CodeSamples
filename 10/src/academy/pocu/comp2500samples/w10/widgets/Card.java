@@ -1,6 +1,6 @@
 package academy.pocu.comp2500samples.w10.widgets;
 
-public class Card extends Widget implements IDraggable {
+public final class Card extends Widget implements IDraggable {
     private String content;
 
     public Card(int x, int y) {

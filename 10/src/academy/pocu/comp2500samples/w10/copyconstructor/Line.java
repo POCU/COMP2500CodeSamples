@@ -1,6 +1,6 @@
 package academy.pocu.comp2500samples.w10.copyconstructor;
 
-public class Line {
+public final class Line {
     private Point p1;
     private Point p2;
 

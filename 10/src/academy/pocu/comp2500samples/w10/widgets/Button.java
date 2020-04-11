@@ -1,6 +1,6 @@
 package academy.pocu.comp2500samples.w10.widgets;
 
-public class Button extends Widget implements IClickable {
+public final class Button extends Widget implements IClickable {
     public Button(int x, int y) {
         super(x, y);
     }

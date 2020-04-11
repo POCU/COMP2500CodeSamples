@@ -5,16 +5,16 @@ import java.util.Random;
 
 public class Program {
     public static void main(String[] args) {
-        Button button1 = new Button("Button1", 10, 5);
-        Button button2 = new Button("Button2", 5, 0);
+        final Button button1 = new Button("Button1", 10, 5);
+        final Button button2 = new Button("Button2", 5, 0);
 
-        Card card1 = new Card("Card1", 0, 1);
-        Card card2 = new Card("Card2", -10, -1);
+        final Card card1 = new Card("Card1", 0, 1);
+        final Card card2 = new Card("Card2", -10, -1);
 
-        Directory directory1 = new Directory("New Folder1", 5, 9);
-        Directory directory2 = new Directory("New Folder2", 12, 22);
+        final Directory directory1 = new Directory("New Folder1", 5, 9);
+        final Directory directory2 = new Directory("New Folder2", 12, 22);
 
-        ArrayList<Widget> widgets = new ArrayList<>();
+        final ArrayList<Widget> widgets = new ArrayList<>();
 
         widgets.add(button1);
         widgets.add(button2);
@@ -32,12 +32,12 @@ public class Program {
             // widget.onDropped(card1);
         }
 
-        IClickable clickableButton = (IClickable) widgets.get(0);
+        final IClickable clickableButton = (IClickable) widgets.get(0);
         clickableButton.onClick();
 
         System.out.println("----------------");
 
-        ArrayList<IClickable> clickables = new ArrayList<>();
+        final ArrayList<IClickable> clickables = new ArrayList<>();
 
         clickables.add(button1);
         clickables.add(button2);
@@ -56,14 +56,14 @@ public class Program {
 
         System.out.println("----------------");
 
-        ArrayList<IDraggable> draggables = new ArrayList<>();
+        final ArrayList<IDraggable> draggables = new ArrayList<>();
 
         draggables.add(card1);
         draggables.add(card2);
         draggables.add(directory1);
         draggables.add(directory2);
 
-        Random random = new Random(10);
+        final Random random = new Random(10);
 
         for (IDraggable draggable : draggables) {
             int x = random.nextInt(50);
@@ -74,7 +74,7 @@ public class Program {
 
         System.out.println("----------------");
 
-        ArrayList<IDroppable> droppables = new ArrayList<>();
+        final ArrayList<IDroppable> droppables = new ArrayList<>();
 
         droppables.add(directory1);
         droppables.add(directory2);

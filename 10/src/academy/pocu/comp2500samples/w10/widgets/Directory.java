@@ -1,6 +1,6 @@
 package academy.pocu.comp2500samples.w10.widgets;
 
-public class Directory extends Widget implements IClickable, IDraggable, IDroppable {
+public final class Directory extends Widget implements IClickable, IDraggable, IDroppable {
     public Directory(int x, int y) {
         super(x, y);
     }
