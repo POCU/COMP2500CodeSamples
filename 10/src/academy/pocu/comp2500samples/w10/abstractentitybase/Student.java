@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w10.entitybase;
+package academy.pocu.comp2500samples.w10.abstractentitybase;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -8,12 +8,12 @@ public class Student extends BaseEntity {
     private String email;
     private String nickname;
 
-    public Student(UUID id,
-                   OffsetDateTime createdDateTime,
-                   OffsetDateTime modifiedDateTime,
-                   String name,
-                   String email,
-                   String nickname) {
+    public Student(final UUID id,
+                   final OffsetDateTime createdDateTime,
+                   final OffsetDateTime modifiedDateTime,
+                   final String name,
+                   final String email,
+                   final String nickname) {
         super(id, createdDateTime, modifiedDateTime);
         this.name = name;
         this.email = email;
@@ -32,7 +32,7 @@ public class Student extends BaseEntity {
         return this.nickname;
     }
 
-    public void setNickname(String nickname) {
+    public void setNickname(final String nickname) {
         this.nickname = nickname;
     }
 }

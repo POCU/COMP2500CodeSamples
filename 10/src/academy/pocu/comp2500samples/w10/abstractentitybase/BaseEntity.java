@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w10.entitybase;
+package academy.pocu.comp2500samples.w10.abstractentitybase;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -8,7 +8,9 @@ public abstract class BaseEntity {
     private OffsetDateTime createdDateTime;
     private OffsetDateTime modifiedDateTime;
 
-    public BaseEntity(UUID id, OffsetDateTime createdDateTime, OffsetDateTime modifiedDateTime) {
+    public BaseEntity(final UUID id,
+                      final OffsetDateTime createdDateTime,
+                      final OffsetDateTime modifiedDateTime) {
         this.id = id;
         this.createdDateTime = createdDateTime;
         this.modifiedDateTime = modifiedDateTime;
@@ -26,7 +28,7 @@ public abstract class BaseEntity {
         return this.modifiedDateTime;
     }
 
-    public void setModifiedDateTime(OffsetDateTime modifiedDateTime) {
+    public void setModifiedDateTime(final OffsetDateTime modifiedDateTime) {
         this.modifiedDateTime = modifiedDateTime;
     }
 }
