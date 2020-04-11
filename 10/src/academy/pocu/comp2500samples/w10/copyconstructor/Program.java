@@ -13,11 +13,11 @@ public class Program {
 
         final Point p3 = new Point(5, 7);
 
-        final Line l1 = new Line(p1, p3);
+        final Line l1 = new Line(p2, p3);
         final Line l2 = new Line(l1);
 
-        p1.setX(10);
-        p1.setY(15);
+        p2.setX(10);
+        p2.setY(15);
 
         System.out.printf("l1.p1.x: %d, l1.p1.y: %d\n",
                 l1.getP1().getX(),
