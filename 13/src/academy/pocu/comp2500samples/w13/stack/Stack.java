@@ -1,4 +1,4 @@
-package academy.pocu.comp2500samples.w13.stackusinginheritance;
+package academy.pocu.comp2500samples.w13.stack;
 
 import java.util.ArrayList;
 
