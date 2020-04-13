@@ -79,14 +79,17 @@ public class Program {
 
         printBaseEntityInformation(student);
 
-        System.out.printf ("    name: %s\n",
-                student.getName());
+        System.out.printf ("    name: %s%s",
+                student.getName(),
+                System.lineSeparator());
 
-        System.out.printf("    email: %s\n",
-                student.getEmail());
+        System.out.printf("    email: %s%s",
+                student.getEmail(),
+                System.lineSeparator());
 
-        System.out.printf("    nickname: %s\n",
-                student.getNickname());
+        System.out.printf("    nickname: %s%s",
+                student.getNickname(),
+                System.lineSeparator());
     }
 
     private static void printCourseInformation(Course course) {
@@ -94,30 +97,37 @@ public class Program {
 
         printBaseEntityInformation(course);
 
-        System.out.printf("    course code: %s\n",
-                course.getCourseCode());
+        System.out.printf("    course code: %s%s",
+                course.getCourseCode(),
+                System.lineSeparator());
 
-        System.out.printf("    title: %s\n",
-                course.getTitle());
+        System.out.printf("    title: %s%s",
+                course.getTitle(),
+                System.lineSeparator());
 
         System.out.println("    course terms:");
 
         for (CourseTerm courseTerm : course.getCourseTerms()) {
-            System.out.printf("        term: %s\n",
-                    courseTerm.getTerm());
-            System.out.printf("        # students: %s\n",
-                    courseTerm.getStudentCount());
+            System.out.printf("        term: %s%s",
+                    courseTerm.getTerm(),
+                    System.lineSeparator());
+            System.out.printf("        # students: %s%s",
+                    courseTerm.getStudentCount(),
+                    System.lineSeparator());
         }
     }
 
     private static void printBaseEntityInformation(BaseEntity entity) {
-        System.out.printf("    id: %s\n",
-                entity.getID());
+        System.out.printf("    id: %s%s",
+                entity.getID(),
+                System.lineSeparator());
 
-        System.out.printf("    created: %s\n",
-                entity.getCreatedDateTime());
+        System.out.printf("    created: %s%s",
+                entity.getCreatedDateTime(),
+                System.lineSeparator());
 
-        System.out.printf("    modified: %s\n",
-                entity.getModifiedDateTime());
+        System.out.printf("    modified: %s%s",
+                entity.getModifiedDateTime(),
+                System.lineSeparator());
     }
 }

@@ -24,7 +24,9 @@ public class Program {
         widgets.add(directory2);
 
         for (Widget widget : widgets) {
-            System.out.printf("Widget label: %s\n", widget.getLabel());
+            System.out.printf("Widget label: %s%s",
+                    widget.getLabel(),
+                    System.lineSeparator());
 
             // Compile Error
             // widget.onClick();

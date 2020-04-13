@@ -9,25 +9,30 @@ public class Program {
 
         Class vectorClass = vector.getClass();
 
-        System.out.printf("Package name: %s\n",
-                vectorClass.getPackageName());
+        System.out.printf("Package name: %s%s",
+                vectorClass.getPackageName(),
+                System.lineSeparator());
 
-        System.out.printf("Type name: %s\n",
-                vectorClass.getTypeName());
+        System.out.printf("Type name: %s%s",
+                vectorClass.getTypeName(),
+                System.lineSeparator());
 
         Method[] methods = vectorClass.getMethods();
 
-        System.out.printf("# methods: %d\n",
-                methods.length);
+        System.out.printf("# methods: %d%s",
+                methods.length,
+                System.lineSeparator());
 
         methods = vectorClass.getDeclaredMethods();
 
-        System.out.printf("# declared methods: %d\n",
-                methods.length);
+        System.out.printf("# declared methods: %d%s",
+                methods.length,
+                System.lineSeparator());
 
         for (Method m: methods) {
-            System.out.printf("    - %s\n",
-                    m.getName());
+            System.out.printf("    - %s%s",
+                    m.getName(),
+                    System.lineSeparator());
         }
 
         try {
@@ -67,13 +72,15 @@ public class Program {
         Field[] fields = vectorClass
                 .getDeclaredFields();
 
-        System.out.printf("# member vars: %d\n",
-                fields.length);
+        System.out.printf("# member vars: %d%s",
+                fields.length,
+                System.lineSeparator());
 
         Class objectClass = vectorClass
                 .getSuperclass();
 
-        System.out.printf("Superclass: %s\n",
-                objectClass.getTypeName());
+        System.out.printf("Superclass: %s%s",
+                objectClass.getTypeName(),
+                System.lineSeparator());
     }
 }

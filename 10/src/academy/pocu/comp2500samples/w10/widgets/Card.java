@@ -21,12 +21,13 @@ public final class Card extends Widget implements IDraggable {
 
     @Override
     public void onDrag(int x, int y) {
-        System.out.printf("Drag Card %s from [ %d, %d ] -> [ %d, %d ]!\n",
+        System.out.printf("Drag Card %s from [ %d, %d ] -> [ %d, %d ]!%s",
                 this.label,
                 this.x,
                 this.y,
                 x,
-                y);
+                y,
+                System.lineSeparator());
 
         this.x = x;
         this.y = y;

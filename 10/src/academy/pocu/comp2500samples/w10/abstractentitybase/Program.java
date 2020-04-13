@@ -19,19 +19,25 @@ public class Program {
                 "peter.parker@pocu.academy",
                 "Spider Man");
 
-        System.out.printf("id: %s\n",
-                student1.getID());
-        System.out.printf("createdDateTime: %s\n",
-                student1.getCreatedDateTime());
-        System.out.printf("modifiedDateTime: %s\n",
-                student1.getModifiedDateTime());
+        System.out.printf("id: %s%s",
+                student1.getID(),
+                System.lineSeparator());
+        System.out.printf("createdDateTime: %s%s",
+                student1.getCreatedDateTime(),
+                System.lineSeparator());
+        System.out.printf("modifiedDateTime: %s%s",
+                student1.getModifiedDateTime(),
+                System.lineSeparator());
 
-        System.out.printf("name: %s\n",
-                ((Student) student1).getName());
-        System.out.printf("email: %s\n",
-                ((Student) student1).getEmail());
-        System.out.printf("nickname: %s\n",
-                ((Student) student1).getNickname());
+        System.out.printf("name: %s%s",
+                ((Student) student1).getName(),
+                System.lineSeparator());
+        System.out.printf("email: %s%s",
+                ((Student) student1).getEmail(),
+                System.lineSeparator());
+        System.out.printf("nickname: %s%s",
+                ((Student) student1).getNickname(),
+                System.lineSeparator());
 
         System.out.println("---------------");
 
@@ -44,18 +50,24 @@ public class Program {
                 "tony.stark@pocu.academy",
                 "Iron Man");
 
-        System.out.printf("id: %s\n",
-                student2.getID());
-        System.out.printf("createdDateTime: %s\n",
-                student2.getCreatedDateTime());
-        System.out.printf("modifiedDateTime: %s\n",
-                student2.getModifiedDateTime());
+        System.out.printf("id: %s%s",
+                student2.getID(),
+                System.lineSeparator());
+        System.out.printf("createdDateTime: %s%s",
+                student2.getCreatedDateTime(),
+                System.lineSeparator());
+        System.out.printf("modifiedDateTime: %s%s",
+                student2.getModifiedDateTime(),
+                System.lineSeparator());
 
-        System.out.printf("name: %s\n",
-                student2.getName());
-        System.out.printf("email: %s\n",
-                student2.getEmail());
-        System.out.printf("nickname: %s\n",
-                student2.getNickname());
+        System.out.printf("name: %s%s",
+                student2.getName(),
+                System.lineSeparator());
+        System.out.printf("email: %s%s",
+                student2.getEmail(),
+                System.lineSeparator());
+        System.out.printf("nickname: %s%s",
+                student2.getNickname(),
+                System.lineSeparator());
     }
 }
