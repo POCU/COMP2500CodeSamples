@@ -19,13 +19,15 @@ public class Program {
                 "peter.parker@pocu.academy",
                 "Spider Man");
 
-        System.out.printf("id: %s\n", student1.getID());
+        System.out.printf("id: %s\n",
+                student1.getID());
         System.out.printf("createdDateTime: %s\n",
                 student1.getCreatedDateTime());
         System.out.printf("modifiedDateTime: %s\n",
                 student1.getModifiedDateTime());
 
-        System.out.printf("name: %s\n", ((Student) student1).getName());
+        System.out.printf("name: %s\n",
+                ((Student) student1).getName());
         System.out.printf("email: %s\n",
                 ((Student) student1).getEmail());
         System.out.printf("nickname: %s\n",
@@ -42,13 +44,15 @@ public class Program {
                 "tony.stark@pocu.academy",
                 "Iron Man");
 
-        System.out.printf("id: %s\n", student2.getID());
+        System.out.printf("id: %s\n",
+                student2.getID());
         System.out.printf("createdDateTime: %s\n",
                 student2.getCreatedDateTime());
         System.out.printf("modifiedDateTime: %s\n",
                 student2.getModifiedDateTime());
 
-        System.out.printf("name: %s\n", student2.getName());
+        System.out.printf("name: %s\n",
+                student2.getName());
         System.out.printf("email: %s\n",
                 student2.getEmail());
         System.out.printf("nickname: %s\n",

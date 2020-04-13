@@ -11,7 +11,8 @@ public final class Line {
     }
 
     public Line(final Line other) {
-        this(new Point(other.p1), new Point(other.p2));
+        this(new Point(other.p1),
+                new Point(other.p2));
     }
 
     public double getLength() {
