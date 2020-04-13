@@ -3,27 +3,31 @@ package academy.pocu.comp2500samples.w13.stack;
 import java.util.ArrayList;
 
 public final class Stack<E> extends ArrayList<E> {
-    public void push(E element) {
-        this.add(element);
+    @Override
+    public void add(int index, E element) {
+        super.add(element);
     }
 
-    public E peek() {
+    @Override
+    public E remove(int index) {
         assert this.size() > 0;
 
-        int lastIndex = this.size() - 1;
-        E element = this.get(lastIndex);
+        int lastIndex = size() - 1;
+        E element = get(lastIndex);
+
+        super.remove(lastIndex);
 
         return element;
     }
 
-    public E pop() {
-        assert this.size() > 0;
+    @Override
+    public boolean remove(Object o) {
+        if (this.size() == 0) {
+            return false;
+        }
 
-        int lastIndex = this.size() - 1;
-        E element = this.get(lastIndex);
+        remove(0);
 
-        this.remove(lastIndex);
-
-        return element;
+        return true;
     }
 }

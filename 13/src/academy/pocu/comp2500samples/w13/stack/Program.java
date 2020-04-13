@@ -1,34 +1,54 @@
 package academy.pocu.comp2500samples.w13.stack;
 
+import java.util.ArrayList;
+
 public class Program {
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack();
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        stack.push(5);
+        stack.add(1);
+        stack.add(2);
+        stack.add(3);
+        stack.add(4);
+        stack.add(5);
 
         while (!stack.isEmpty()) {
-            int num = stack.pop();
+            int num = stack.remove(0);
             System.out.println(num);
         }
 
         System.out.println("-----------------");
 
-        stack.push(1);
-        stack.push(3);
-        stack.push(6);
+        ArrayList<Integer> list = new ArrayList<>();
 
-        stack.add(1, 2);
-        stack.add(3, 4);
+        addInOrder(list, 10);
+        addInOrder(list, 2);
+        addInOrder(list, 5);
 
-        stack.remove(0);
-        stack.remove(3);
+        for (int num : list) {
+            System.out.println(num);
+        }
+
+        System.out.println("-----------------");
+
+        addInOrder(stack, 10);
+        addInOrder(stack, 2);
+        addInOrder(stack, 5);
 
         for (int num : stack) {
             System.out.println(num);
         }
+    }
+
+    private static void addInOrder(ArrayList<Integer> list, int num) {
+        int i;
+
+        for (i = 0; i < list.size(); ++i) {
+            if (list.get(i) > num) {
+                break;
+            }
+        }
+
+        list.add(i, num);
     }
 }
