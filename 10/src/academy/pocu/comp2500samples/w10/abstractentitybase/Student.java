@@ -24,8 +24,16 @@ public final class Student extends BaseEntity {
         return this.name;
     }
 
+    public void setName(final String name) {
+        this.name = name;
+    }
+
     public String getEmail() {
         return this.email;
+    }
+
+    public void setEmail(final String email) {
+        this.email = email;
     }
 
     public String getNickname() {

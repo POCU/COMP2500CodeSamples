@@ -4,8 +4,8 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 public abstract class BaseEntity {
-    private UUID id;
-    private OffsetDateTime createdDateTime;
+    private final UUID id;
+    private final OffsetDateTime createdDateTime;
     private OffsetDateTime modifiedDateTime;
 
     public BaseEntity(final UUID id,

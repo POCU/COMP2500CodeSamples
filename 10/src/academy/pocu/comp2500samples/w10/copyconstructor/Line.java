@@ -1,8 +1,8 @@
 package academy.pocu.comp2500samples.w10.copyconstructor;
 
 public final class Line {
-    private Point p1;
-    private Point p2;
+    private final Point p1;
+    private final Point p2;
 
     public Line(final Point p1,
                 final Point p2) {
@@ -11,8 +11,7 @@ public final class Line {
     }
 
     public Line(final Line other) {
-        this.p1 = new Point(other.p1);
-        this.p2 = new Point(other.p2);
+        this(new Point(other.p1), new Point(other.p2));
     }
 
     public double getLength() {

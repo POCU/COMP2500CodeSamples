@@ -10,8 +10,7 @@ public final class Point {
     }
 
     public Point(final Point other) {
-        this.x = other.x;
-        this.y = other.y;
+        this(other.x, other.y);
     }
 
     public int getX() {

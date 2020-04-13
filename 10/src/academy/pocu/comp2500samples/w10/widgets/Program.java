@@ -80,7 +80,7 @@ public class Program {
         droppables.add(directory2);
 
         for (IDroppable droppable : droppables) {
-            droppable.onDropped(button1);
+            droppable.onDrop(button1);
         }
     }
 }

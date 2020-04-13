@@ -28,7 +28,7 @@ public final class Directory extends Widget implements IClickable, IDraggable, I
     }
 
     @Override
-    public void onDropped(Widget widget) {
+    public void onDrop(Widget widget) {
         System.out.printf("Widget %s was dropped inside of Directory %s\n",
                 widget.getLabel(),
                 this.label);
