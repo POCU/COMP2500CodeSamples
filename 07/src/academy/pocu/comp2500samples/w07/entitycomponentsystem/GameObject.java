@@ -15,12 +15,16 @@ public class GameObject {
     }
 
     public void update() {
-        System.out.printf("Update GameObject '%s'\n", this.name);
+        System.out.printf("Update GameObject '%s'%s",
+                this.name,
+                System.lineSeparator());
 
         for (Component component : this.components) {
             component.update();
         }
 
-        System.out.printf("Updating '%s' complete\n", this.name);
+        System.out.printf("Updating '%s' complete%s",
+                this.name,
+                System.lineSeparator());
     }
 }

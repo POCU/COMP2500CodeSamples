@@ -19,6 +19,8 @@ public class Point extends Graphic {
     }
 
     public void draw() {
-        System.out.printf("Draw point '%s'\n", this.label);
+        System.out.printf("Draw point '%s'%s",
+                this.label,
+                System.lineSeparator());
     }
 }

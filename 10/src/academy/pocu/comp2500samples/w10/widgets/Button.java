@@ -11,6 +11,8 @@ public final class Button extends Widget implements IClickable {
 
     @Override
     public void onClick() {
-        System.out.printf("Button %s clicked!\n", this.label);
+        System.out.printf("Button %s clicked!%s",
+                this.label,
+                System.lineSeparator());
     }
 }

@@ -8,8 +8,14 @@ public class Program {
         p1.setX(-4);
         p1.setY(-8);
 
-        System.out.printf("p1.x: %d, p1.y: %d\n", p1.getX(), p1.getY());
-        System.out.printf("p2.x: %d, p2.y: %d\n", p2.getX(), p2.getY());
+        System.out.printf("p1.x: %d, p1.y: %d%s",
+                p1.getX(),
+                p1.getY(),
+                System.lineSeparator());
+        System.out.printf("p2.x: %d, p2.y: %d%s",
+                p2.getX(),
+                p2.getY(),
+                System.lineSeparator());
 
         final Point p3 = new Point(5, 7);
 
@@ -19,20 +25,24 @@ public class Program {
         p2.setX(10);
         p2.setY(15);
 
-        System.out.printf("l1.p1.x: %d, l1.p1.y: %d\n",
+        System.out.printf("l1.p1.x: %d, l1.p1.y: %d%s",
                 l1.getP1().getX(),
-                l1.getP1().getY());
+                l1.getP1().getY(),
+                System.lineSeparator());
 
-        System.out.printf("l1.p2.x: %d, l1.p2.y: %d\n",
+        System.out.printf("l1.p2.x: %d, l1.p2.y: %d%s",
                 l1.getP2().getX(),
-                l1.getP2().getY());
+                l1.getP2().getY(),
+                System.lineSeparator());
 
-        System.out.printf("l2.p1.x: %d, l2.p1.y: %d\n",
+        System.out.printf("l2.p1.x: %d, l2.p1.y: %d%s",
                 l2.getP1().getX(),
-                l2.getP1().getY());
+                l2.getP1().getY(),
+                System.lineSeparator());
 
-        System.out.printf("l2.p2.x: %d, l2.p2.y: %d\n",
+        System.out.printf("l2.p2.x: %d, l2.p2.y: %d%s",
                 l2.getP2().getX(),
-                l2.getP2().getY());
+                l2.getP2().getY(),
+                System.lineSeparator());
     }
 }

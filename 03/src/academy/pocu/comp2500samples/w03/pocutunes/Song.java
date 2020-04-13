@@ -24,6 +24,10 @@ public class Song {
     }
 
     public void play() {
-        System.out.println(String.format("Playing %s by %s. Duration is %d milliseconds", this.name, this.artist, this.playTimeInMilliSeconds));
+        System.out.printf("Playing %s by %s. Duration is %d milliseconds%s",
+                this.name,
+                this.artist,
+                this.playTimeInMilliSeconds,
+                System.lineSeparator());
     }
 }

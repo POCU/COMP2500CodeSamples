@@ -30,10 +30,11 @@ public class Program {
                 "All I Want For Christmas Is You",
                 18301);
 
-        System.out.printf("%s by %s. Playtime is %d.\n",
+        System.out.printf("%s by %s. Playtime is %d.%s",
                 hotelCalifornia.getName(),
                 hotelCalifornia.getArtist(),
-                hotelCalifornia.getPlaytimeInMilliSeconds());
+                hotelCalifornia.getPlaytimeInMilliSeconds(),
+                System.lineSeparator());
 
         Playlist playlist1 = new Playlist("Classic Rock");
         playlist1.addSong(hotelCalifornia);
@@ -54,8 +55,9 @@ public class Program {
         tunes.addSong(basketCase);
         tunes.addSong(christmas);
 
-        System.out.printf("Song count %d\n",
-                tunes.getSongCount());
+        System.out.printf("Song count %d%s",
+                tunes.getSongCount(),
+                System.lineSeparator());
 
         tunes.addPlaylist(playlist1);
         tunes.addPlaylist(playlist2);
@@ -80,8 +82,9 @@ public class Program {
 
         tunes.removePlaylist("Christmas Music");
 
-        System.out.printf("Song count %d.\n",
-                tunes.getSongCount());
+        System.out.printf("Song count %d.%s",
+                tunes.getSongCount(),
+                System.lineSeparator());
         tunes.playPlaylist("Christmas Music");
     }
 }
