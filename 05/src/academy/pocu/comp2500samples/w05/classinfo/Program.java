@@ -29,7 +29,7 @@ public class Program {
                 methods.length,
                 System.lineSeparator());
 
-        for (Method m: methods) {
+        for (Method m : methods) {
             System.out.printf("    - %s%s",
                     m.getName(),
                     System.lineSeparator());
