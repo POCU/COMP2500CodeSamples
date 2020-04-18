@@ -31,11 +31,13 @@ public class Program {
 
         System.out.println("-----------------");
 
-        addInOrder(stack, 10);
-        addInOrder(stack, 2);
-        addInOrder(stack, 5);
+        list = new Stack<>();
 
-        for (int num : stack) {
+        addInOrder(list, 10);
+        addInOrder(list, 2);
+        addInOrder(list, 5);
+
+        for (int num : list) {
             System.out.println(num);
         }
     }
