@@ -23,9 +23,9 @@ public final class Earth extends Attunement {
         final OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
 
         final Duration cooldown = Duration.ofSeconds(ELITE_SKILL_COOLDOWN_SECS);
-        final OffsetDateTime cooldownExpireDateTime = lastEliteAttackUsedDateTime.plus(cooldown);
+        final OffsetDateTime cooldownExpiryDateTime = lastEliteAttackUsedDateTime.plus(cooldown);
 
-        if (now.compareTo(cooldownExpireDateTime) > 0) {
+        if (now.compareTo(cooldownExpiryDateTime) > 0) {
             System.out.println("Feel the wrath of Mother Earth!");
             System.out.println("Earthquake!");
         } else {

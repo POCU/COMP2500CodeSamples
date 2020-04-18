@@ -24,9 +24,9 @@ public final class Water extends Attunement {
 
         final Duration cooldown = Duration.ofSeconds(ELITE_SKILL_COOLDOWN_SECS);
 
-        final OffsetDateTime cooldownExpireDateTime = lastEliteAttackUsedDateTime.plus(cooldown);
+        final OffsetDateTime cooldownExpiryDateTime = lastEliteAttackUsedDateTime.plus(cooldown);
 
-        if (now.compareTo(cooldownExpireDateTime) > 0) {
+        if (now.compareTo(cooldownExpiryDateTime) > 0) {
             System.out.println("Alright, let's surf!");
             System.out.println("Poseidon's fury! Tsunami~~~!!");
         } else {
