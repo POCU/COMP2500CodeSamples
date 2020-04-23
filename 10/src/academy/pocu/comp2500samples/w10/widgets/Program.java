@@ -49,7 +49,7 @@ public class Program {
         // Compile Error
         // clickables.add(card1);
 
-        // Runtime error
+        // Compile error
         // clickables.add((IClickable) card2);
 
         for (IClickable clickable : clickables) {
